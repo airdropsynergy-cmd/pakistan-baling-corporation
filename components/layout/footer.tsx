@@ -1,8 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Facebook, Mail, Phone, MapPin } from "lucide-react"
 import { products } from "@/data/products"
 
 const quickLinks = [
@@ -13,12 +11,12 @@ const quickLinks = [
 ]
 
 const socialLinks = [
-  { name: "Facebook", icon: Facebook, href: "#" },
-  { name: "Twitter", icon: Twitter, href: "#" },
-  { name: "LinkedIn", icon: Linkedin, href: "#" },
-  { name: "Instagram", icon: Instagram, href: "#" },
+  {
+    name: "Facebook",
+    icon: Facebook,
+    href: "https://www.facebook.com/share/1J1MDuTfzL/",
+  },
 ]
-
 export function Footer() {
   return (
     <footer className="bg-foreground text-background">
@@ -51,11 +49,13 @@ export function Footer() {
             <div className="flex gap-4">
               {socialLinks.map((social) => (
                 <a
-                  key={social.name}
-                  href={social.href}
-                  className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                  aria-label={social.name}
-                >
+  key={social.name}
+  href={social.href}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+  aria-label={social.name}
+>
                   <social.icon className="w-5 h-5" />
                 </a>
               ))}
@@ -104,7 +104,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info & Newsletter */}
+          {/* Contact Info */}
           <div className="space-y-6">
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
@@ -115,35 +115,23 @@ export function Footer() {
                 </li>
                 <li className="flex items-center gap-3 text-sm text-background/70">
                   <Phone className="w-5 h-5 text-primary shrink-0" />
-                  <span>+92 300 9000000</span>
+                  <a
+  href="tel:+923009000000"
+  className="hover:text-primary transition-colors"
+>
+  +92 300 9000000
+</a>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-background/70">
                   <Mail className="w-5 h-5 text-primary shrink-0" />
-                  <span>airdropsynergy@gmail.com</span>
+                  <a
+  href="mailto:airdropsynergy@gmail.com"
+  className="hover:text-primary transition-colors"
+>
+  airdropsynergy@gmail.com
+</a>
                 </li>
               </ul>
-            </div>
-
-            {/* Newsletter */}
-            <div>
-              <h4 className="text-sm font-semibold mb-3">Newsletter</h4>
-              <p className="text-xs text-background/60 mb-3">
-                Subscribe for updates on products and industry news.
-              </p>
-              <form className="flex gap-2">
-                <Input
-                  type="email"
-                  placeholder="Your email"
-                  className="bg-background/10 border-background/20 text-background placeholder:text-background/40 text-sm"
-                />
-                <Button 
-                  type="submit" 
-                  size="sm"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground shrink-0"
-                >
-                  Subscribe
-                </Button>
-              </form>
             </div>
           </div>
         </div>
@@ -154,7 +142,7 @@ export function Footer() {
         <div className="container mx-auto px-4 py-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-background/60">
-              {new Date().getFullYear()} BioMass Global. All rights reserved.
+              {new Date().getFullYear()} Pakistan Baling Corporation. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-background/60">
               <Link href="#" className="hover:text-background transition-colors">
