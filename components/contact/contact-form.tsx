@@ -33,15 +33,32 @@ export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
+  e.preventDefault()
+  setIsSubmitting(true)
+
+  const form = e.currentTarget
+
+  try {
+    const response = await fetch("https://formspree.io/f/mbdejedb", {
+      method: "POST",
+      body: new FormData(form),
+      headers: {
+        Accept: "application/json",
+      },
+    })
+
+    if (response.ok) {
+      setIsSubmitted(true)
+      form.reset()
+    } else {
+      alert("Failed to send inquiry. Please try again.")
+    }
+  } catch (error) {
+    alert("An error occurred. Please try again.")
+  } finally {
     setIsSubmitting(false)
-    setIsSubmitted(true)
   }
+}
 
   if (isSubmitted) {
     return (
