@@ -43,7 +43,7 @@ export default function RootLayout({
       <body className="font-sans antialiased min-h-screen flex flex-col">
 
 <Script
-  src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+  src="https://www.googletagmanager.com/gtag/js?id=G-LRY4H08QBT"
   strategy="afterInteractive"
 />
 
@@ -52,7 +52,7 @@ export default function RootLayout({
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-LRY4H08QBT');
   `}
 </Script>
 
