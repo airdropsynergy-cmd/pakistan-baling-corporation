@@ -109,8 +109,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Email</h3>
                     <p className="text-muted-foreground text-sm">
-                      <a href="mailto:airdropsynergy@gmail.com" className="hover:text-primary transition-colors">
-                        Airdropsynergy@gmail.com
+                      <a href="mailto:info@pakbaling.com" className="hover:text-primary transition-colors">
+                        info@pakbaling.com
                       </a>
                      
                     </p>

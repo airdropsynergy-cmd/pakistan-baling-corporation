@@ -125,10 +125,10 @@ export function Footer() {
                 <li className="flex items-center gap-3 text-sm text-background/70">
                   <Mail className="w-5 h-5 text-primary shrink-0" />
                   <a
-  href="mailto:airdropsynergy@gmail.com"
+  href="mailto:sales@pakbaling.com"
   className="hover:text-primary transition-colors"
 >
-  airdropsynergy@gmail.com
+  sales@pakbaling.com
 </a>
                 </li>
               </ul>
