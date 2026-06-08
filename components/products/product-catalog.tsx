@@ -127,9 +127,9 @@ export function ProductCatalog() {
                 <div className="absolute top-3 left-3 flex gap-2">
                   <span className={cn(
                     "px-3 py-1 text-xs font-medium rounded-full",
-                    product.status === "Available" 
+                    product.status === "Ready Stock" 
                       ? "bg-primary text-primary-foreground"
-                      : product.status === "Seasonal"
+                      : product.status === "Seasonal Supply"
                       ? "bg-accent text-accent-foreground"
                       : "bg-muted text-muted-foreground"
                   )}>

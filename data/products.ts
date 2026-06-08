@@ -55,7 +55,7 @@ export interface Product {
   // Availability Management - Admins can change these values
   available: boolean; // Set to false to hide product or show unavailable badge
   seasonal: boolean;
-  status: "Available" | "Seasonal" | "Out of Stock";
+  status: "Ready Stock" | "Seasonal Supply" | "Source on Demand";
   productType: "feed" | "fuel" | "both";
 }
 
@@ -103,7 +103,7 @@ export const products: Product[] = [
     },
     available: true,
     seasonal: false,
-    status: "Available",
+    status: "Ready Stock",
     productType: "feed"
   },
   {
@@ -148,8 +148,8 @@ export const products: Product[] = [
       technicalDatasheet: "#"
     },
     available: true,
-    seasonal: false,
-    status: "Available",
+    seasonal: true,
+    status: "Seasonal Supply",
     productType: "feed"
   },
   {
@@ -195,7 +195,7 @@ export const products: Product[] = [
     },
     available: true,
     seasonal: true,
-    status: "Seasonal",
+    status: "Seasonal Supply",
     productType: "feed"
   },
   {
@@ -240,8 +240,8 @@ export const products: Product[] = [
       technicalDatasheet: "#"
     },
     available: true,
-    seasonal: false,
-    status: "Available",
+    seasonal: true,
+    status: "Seasonal Supply",
     productType: "fuel"
   },
   {
@@ -287,7 +287,7 @@ export const products: Product[] = [
     },
     available: true,
     seasonal: true,
-    status: "Seasonal",
+    status: "Seasonal Supply",
     productType: "both"
   },
   {
@@ -333,7 +333,7 @@ export const products: Product[] = [
     },
     available: true,
     seasonal: true,
-    status: "Seasonal",
+    status: "Seasonal Supply",
     productType: "both"
   },
   {
@@ -379,7 +379,7 @@ export const products: Product[] = [
     },
     available: true,
     seasonal: true,
-    status: "Seasonal",
+    status: "Seasonal Supply",
     productType: "fuel"
   }
 ];

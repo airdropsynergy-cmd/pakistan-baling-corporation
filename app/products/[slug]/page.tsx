@@ -68,12 +68,12 @@ export async function generateMetadata({
   
   if (!product) {
     return {
-      title: "Product Not Found | BioMass Global",
+      title: "Product Not Found | Pakistan Baling Corporation",
     }
   }
 
   return {
-    title: `${product.name} | BioMass Global`,
+    title: `${product.name} | Pakistan Baling Corporation`,
     description: product.shortDescription,
   }
 }
@@ -169,9 +169,9 @@ export default async function ProductDetailPage({
                 <div className="absolute top-4 left-4">
                   <span className={cn(
                     "px-4 py-2 text-sm font-medium rounded-full",
-                    product.status === "Available" 
+                    product.status === "Ready Stock" 
                       ? "bg-primary text-primary-foreground"
-                      : product.status === "Seasonal"
+                      : product.status === "Seasonal Supply"
                       ? "bg-accent text-accent-foreground"
                       : "bg-muted text-muted-foreground"
                   )}>
@@ -196,6 +196,19 @@ export default async function ProductDetailPage({
                 {product.shortDescription}
               </p>
 
+<div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
+  <p className="text-sm font-semibold text-foreground mb-1">
+    Availability Status: {product.status}
+  </p>
+
+  <p className="text-sm text-muted-foreground">
+    {product.status === "Ready Stock"
+      ? "Available for immediate supply. Contact our team for quotations."
+      : product.status === "Seasonal Supply"
+      ? "Available during harvest season or through advance booking. Advance bookings are open."
+      : "Available through our sourcing network. Contact us for availability and lead times."}
+  </p>
+</div>
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-4 pt-4">
                 <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
