@@ -72,10 +72,21 @@ export async function generateMetadata({
     }
   }
 
-  return {
-    title: `${product.name} | Pakistan Baling Corporation`,
+ return {
+  title: `${product.name} Exporter & Supplier | Pakistan Baling Corporation`,
+  description: product.shortDescription,
+
+  alternates: {
+    canonical: `/products/${product.slug}`,
+  },
+
+  openGraph: {
+    title: `${product.name} Exporter & Supplier | Pakistan Baling Corporation`,
     description: product.shortDescription,
-  }
+    url: `https://pakbaling.com/products/${product.slug}`,
+    type: 'article',
+  },
+}
 }
 
 export default async function ProductDetailPage({ 
@@ -160,7 +171,7 @@ export default async function ProductDetailPage({
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src={productImages[product.slug] || "/images/placeholder.jpg"}
-                  alt={product.name}
+                  alt={`${product.name} supplied by Pakistan Baling Corporation`}
                   fill
                   className="object-cover"
                   priority
@@ -372,7 +383,7 @@ export default async function ProductDetailPage({
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
                       src={productImages[relatedProduct.slug] || "/images/placeholder.jpg"}
-                      alt={relatedProduct.name}
+                      alt={`${relatedProduct.name} supplied by Pakistan Baling Corporation`}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
