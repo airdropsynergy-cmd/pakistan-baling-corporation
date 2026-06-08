@@ -17,16 +17,46 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'BioMass Global | Premium Biomass & Agricultural Products Export',
-  description: 'Leading supplier and exporter of high-density baled biomass products for animal feed, biomass fuel, bedding, and agricultural applications. Serving global markets with quality Rhode Grass, Alfalfa, Silage, Rice Straw, Wheat Straw, and Sugarcane Bagasse.',
-  keywords: 'biomass, animal feed, alfalfa, rhode grass, silage, rice straw, wheat straw, sugarcane bagasse, export, agricultural products',
+  metadataBase: new URL('https://pakbaling.com'),
+
+  title: {
+    default: 'Pakistan Baling Corporation | Agricultural Commodity & Biomass Exporter',
+    template: '%s | Pakistan Baling Corporation',
+  },
+
+  description:
+    'Pakistan Baling Corporation exports premium baled agricultural commodities and biomass products including Rhode Grass, Alfalfa, Silage, Wheat Straw, Rice Straw, Rice Husk and Sugarcane Bagasse to global markets.',
+
+  keywords: [
+    'Rhode Grass exporter',
+    'Alfalfa exporter',
+    'Silage supplier',
+    'Wheat Straw exporter',
+    'Rice Straw exporter',
+    'Rice Husk supplier',
+    'Sugarcane Bagasse exporter',
+    'Agricultural commodities Pakistan',
+    'Biomass exporter Pakistan',
+    'Animal feed exporter',
+  ],
+
+  alternates: {
+    canonical: '/',
+  },
+
   openGraph: {
-    title: 'BioMass Global | Premium Biomass & Agricultural Products Export',
-    description: 'Leading supplier and exporter of high-density baled biomass products for animal feed, biomass fuel, and agricultural applications.',
+    title:
+      'Pakistan Baling Corporation | Agricultural Commodity & Biomass Exporter',
+
+    description:
+      'Exporter of Rhode Grass, Alfalfa, Silage, Wheat Straw, Rice Straw, Rice Husk and Sugarcane Bagasse from Pakistan.',
+
+    url: 'https://pakbaling.com',
+    siteName: 'Pakistan Baling Corporation',
     type: 'website',
+    locale: 'en_PK',
   },
 }
-
 export const viewport: Viewport = {
   themeColor: '#1a5f2a',
   width: 'device-width',
