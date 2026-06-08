@@ -147,8 +147,32 @@ export default async function ProductDetailPage({
     },
   ]
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.shortDescription,
+    image: `https://pakbaling.com${productImages[product.slug]}`,
+    brand: {
+      "@type": "Brand",
+      name: "Pakistan Baling Corporation",
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: "Pakistan Baling Corporation",
+    },
+    category: product.category,
+    url: `https://pakbaling.com/products/${product.slug}`,
+  }
+
   return (
     <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(structuredData),
+      }}
+    />
       {/* Breadcrumb */}
       <div className="bg-secondary/30 border-b border-border">
         <div className="container mx-auto px-4 lg:px-8 py-4">
