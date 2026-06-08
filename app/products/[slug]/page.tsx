@@ -81,11 +81,19 @@ export async function generateMetadata({
   },
 
   openGraph: {
-    title: `${product.name} Exporter & Supplier | Pakistan Baling Corporation`,
-    description: product.shortDescription,
-    url: `https://pakbaling.com/products/${product.slug}`,
-    type: 'article',
-  },
+  title: `${product.name} Exporter & Supplier | Pakistan Baling Corporation`,
+  description: product.shortDescription,
+  url: `https://pakbaling.com/products/${product.slug}`,
+  type: "website",
+  images: [
+    {
+      url: `https://pakbaling.com${productImages[product.slug]}`,
+      width: 1200,
+      height: 630,
+      alt: product.name,
+    },
+  ],
+},
 }
 }
 
@@ -148,22 +156,40 @@ export default async function ProductDetailPage({
   ]
 
   const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: product.name,
-    description: product.shortDescription,
-    image: `https://pakbaling.com${productImages[product.slug]}`,
-    brand: {
-      "@type": "Brand",
-      name: "Pakistan Baling Corporation",
-    },
-    manufacturer: {
-      "@type": "Organization",
-      name: "Pakistan Baling Corporation",
-    },
-    category: product.category,
-    url: `https://pakbaling.com/products/${product.slug}`,
-  }
+  "@context": "https://schema.org",
+  "@type": "Product",
+"@id": `https://pakbaling.com/products/${product.slug}#product`,
+
+  name: product.name,
+  description: product.shortDescription,
+
+  image: [
+    `https://pakbaling.com${productImages[product.slug]}`
+  ],
+
+  brand: {
+    "@type": "Brand",
+    name: "Pakistan Baling Corporation",
+  },
+
+  manufacturer: {
+  "@type": "Organization",
+  "@id": "https://pakbaling.com/#organization",
+  name: "Pakistan Baling Corporation",
+},
+
+  category: product.category,
+
+  url: `https://pakbaling.com/products/${product.slug}`,
+
+  additionalProperty: keyFacts
+    .filter((fact) => fact.value !== "N/A")
+    .map((fact) => ({
+      "@type": "PropertyValue",
+      name: fact.label,
+      value: fact.value,
+    })),
+}
 
   return (
     <>
