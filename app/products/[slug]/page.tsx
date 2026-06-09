@@ -14,6 +14,7 @@ import {
   ChevronRight
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import ProductImageGallery from "@/components/products/product-image-gallery"
 import { products } from "@/data/products"
 import { cn } from "@/lib/utils"
 
@@ -208,29 +209,11 @@ export default async function ProductDetailPage({
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Product Image */}
             <div className="space-y-4">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src={product.heroImages[0] || "/images/placeholder.jpg"}
-                  alt={`${product.name} supplied by Pakistan Baling Corporation`}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                {/* Status Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className={cn(
-                    "px-4 py-2 text-sm font-medium rounded-full",
-                    product.status === "Ready Stock" 
-                      ? "bg-primary text-primary-foreground"
-                      : product.status === "Seasonal Supply"
-                      ? "bg-accent text-accent-foreground"
-                      : "bg-muted text-muted-foreground"
-                  )}>
-                    {product.status}
-                  </span>
-                </div>
-              </div>
-            </div>
+  <ProductImageGallery
+    images={product.heroImages}
+    productName={product.name}
+  />
+</div>
 
             {/* Product Info: Heading, Subheading, Action Buttons */}
             <div className="space-y-6">
