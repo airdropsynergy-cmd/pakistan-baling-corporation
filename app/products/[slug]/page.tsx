@@ -17,16 +17,6 @@ import { Button } from "@/components/ui/button"
 import { products } from "@/data/products"
 import { cn } from "@/lib/utils"
 
-const productImages: Record<string, string> = {
-  "rhode-grass": "/Rhode-Grass.webp",
-  "alfalfa": "/Alfalfa.webp",
-  "silage": "/Silage.webp",
-  "rice-husk": "/Rice-Husk.webp",
-  "rice-straw": "/Rice-Straw.webp",
-  "wheat-straw": "/Wheat-Straw.webp",
-  "sugarcane-bagasse": "/Sugarcane-bagasse.webp",
-}
-
 const applicationIcons: Record<string, typeof Leaf> = {
   "Dairy Cattle Feed": Leaf,
   "Livestock Feed": Leaf,
@@ -87,7 +77,7 @@ export async function generateMetadata({
   type: "website",
   images: [
     {
-      url: `https://pakbaling.com${productImages[product.slug]}`,
+      url: `https://pakbaling.com${product.heroImages[0]}`,
       width: 1200,
       height: 630,
       alt: product.name,
@@ -163,9 +153,9 @@ export default async function ProductDetailPage({
   name: product.name,
   description: product.shortDescription,
 
-  image: [
-    `https://pakbaling.com${productImages[product.slug]}`
-  ],
+  image: product.heroImages.map(
+  (img) => `https://pakbaling.com${img}`
+),
 
   brand: {
     "@type": "Brand",
@@ -220,7 +210,7 @@ export default async function ProductDetailPage({
             <div className="space-y-4">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src={productImages[product.slug] || "/images/placeholder.jpg"}
+                  src={product.heroImages[0] || "/images/placeholder.jpg"}
                   alt={`${product.name} supplied by Pakistan Baling Corporation`}
                   fill
                   className="object-cover"
@@ -432,7 +422,7 @@ export default async function ProductDetailPage({
                 <div className="bg-card rounded-xl overflow-hidden shadow-sm border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
-                      src={productImages[relatedProduct.slug] || "/images/placeholder.jpg"}
+                      src={relatedProduct.heroImages[0] || "/images/placeholder.jpg"}
                       alt={`${relatedProduct.name} supplied by Pakistan Baling Corporation`}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
