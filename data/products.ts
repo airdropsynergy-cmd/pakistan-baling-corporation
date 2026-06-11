@@ -193,7 +193,7 @@ export const products: Product[] = [
       productProfile: "#",
       technicalDatasheet: "#"
     },
-    available: true,
+    available: false,
     seasonal: true,
     status: "Seasonal Supply",
     productType: "feed"
