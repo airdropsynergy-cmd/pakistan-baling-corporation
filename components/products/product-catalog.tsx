@@ -25,12 +25,13 @@ export function ProductCatalog() {
   const [showFilters, setShowFilters] = useState(false)
 
   const filteredProducts = products.filter((product) => {
+	const isAvailable = product.available
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       product.shortDescription.toLowerCase().includes(searchQuery.toLowerCase())
     const matchesCategory = selectedCategory === "All Products" || product.category === selectedCategory
     
     // Only show available products (or show all with availability badge)
-    return matchesSearch && matchesCategory
+    return isAvailable && matchesSearch && matchesCategory
   })
 
   return (
