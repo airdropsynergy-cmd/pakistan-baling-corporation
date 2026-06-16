@@ -10,13 +10,13 @@ import { products, categories } from "@/data/products"
 import { cn } from "@/lib/utils"
 
 const productImages: Record<string, string> = {
-  "rhode-grass": "/Rhode-Grass.webp",
-  "alfalfa": "/Alfalfa.webp",
-  "silage": "/Silage.webp",
-  "rice-husk": "/Rice-Husk.webp",
-  "rice-straw": "/Rice-Straw.webp",
-  "wheat-straw": "/Wheat-Straw.webp",
-  "sugarcane-bagasse": "/Sugarcane-bagasse.webp",
+  "rhode-grass": "/images/products/rhode-grass/hero-1.webp",
+  "alfalfa": "/images/products/alfalfa/hero-1.webp",
+  "silage": "/images/products/silage/hero-1.webp",
+  "rice-husk": "/images/products/rice-husk/hero-1.webp",
+  "rice-straw": "/images/products/rice-straw/hero-1.webp",
+  "wheat-straw": "/images/products/wheat-straw/hero-1.webp",
+  "sugarcane-bagasse": "/images/products/bagasse/hero-1.webp",
 }
 
 export function ProductCatalog() {
