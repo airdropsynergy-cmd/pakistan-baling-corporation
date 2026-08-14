@@ -63,11 +63,11 @@ export function CTASection() {
                 <div className="text-sm text-primary-foreground/70">Countries Served</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary-foreground">500+</div>
-                <div className="text-sm text-primary-foreground/70">Containers/Year</div>
+                <div className="text-3xl font-bold text-primary-foreground">30,000+</div>
+                <div className="text-sm text-primary-foreground/70">Metric Ton Capacity</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary-foreground">8</div>
+                <div className="text-3xl font-bold text-primary-foreground">5</div>
                 <div className="text-sm text-primary-foreground/70">Product Categories</div>
               </div>
             </div>
