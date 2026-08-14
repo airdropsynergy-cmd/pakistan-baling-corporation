@@ -95,8 +95,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Phone</h3>
                     <p className="text-muted-foreground text-sm">
-                      <a href="tel:+923009000000" className="hover:text-primary transition-colors">
-                        +92 300 9000000
+                      <a href="tel:+923232086603" className="hover:text-primary transition-colors">
+                        +92 323 2086603
                       </a>
                     </p>
                   </div>
@@ -124,8 +124,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">WhatsApp</h3>
                     <p className="text-muted-foreground text-sm">
-                      <a href="https://wa.me/92300900000" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                        +92 300 9000000
+                      <a href="https://wa.me/923232086603" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        +92 323 2086603
                       </a>
                     </p>
                   </div>
@@ -190,7 +190,7 @@ export default function ContactPage() {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
-              <a href="tel:+923009000000">
+              <a href="tel:+923232086603">
                 <Phone className="w-4 h-4 mr-2" />
                 Call Us Now
               </a>
