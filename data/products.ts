@@ -78,15 +78,15 @@ export const products: Product[] = [
       baleDensity: "180-220 kg/m³",
       moistureContent: "12-14%",
       baleDimensions: "100 x 50 x 40 cm",
-      baleWeight: "25-30 kg",
+      baleWeight: "Flexible sizes available (20-30 KG), (300 KG), and (600 KG)",
       packaging: "Double-strapped compressed bales",
       origin: "Premium agricultural regions"
     },
     containerInfo: {
-      baleWeight: "25-30 kg",
+      baleWeight: "Flexible sizes available (20-30 KG), (300 KG), and (600 KG)",
       balesPerContainer: "850-900 bales",
       containerType: "40ft High Cube",
-      approximateNetWeight: "22-24 MT",
+      approximateNetWeight: "Single Press, Double Press, and High Density Bales all available",
       loadingMethod: "Manual stacking / Forklift"
     },
     technicalProperties: {
