@@ -277,7 +277,7 @@ export const products: Product[] = [
       grossCalorificValue: "3,300-3,600 kcal/kg",
       netCalorificValue: "3,000-3,300 kcal/kg",
       lhv: "12-14 MJ/kg",
-      ashContent: "15-20%",
+      ashContent: "> 20%",
       moisture: "8-12%"
     },
     applications: ["Biomass Power Plants", "Industrial Boilers", "Brick Kilns", "Cement Industry"],
@@ -323,7 +323,7 @@ export const products: Product[] = [
       grossCalorificValue: "3,000-3,400 kcal/kg",
       netCalorificValue: "2,700-3,100 kcal/kg",
       lhv: "11-13 MJ/kg",
-      ashContent: "12-18%",
+      ashContent: "> 20%",
       moisture: "10-14%"
     },
     applications: ["Animal Bedding", "Biomass Fuel", "Mushroom Cultivation", "Paper Manufacturing", "Composting"],
@@ -369,7 +369,7 @@ export const products: Product[] = [
       grossCalorificValue: "3,800-4,200 kcal/kg",
       netCalorificValue: "3,400-3,800 kcal/kg",
       lhv: "14-16 MJ/kg",
-      ashContent: "5-8%",
+      ashContent: "> 8%",
       moisture: "10-14%"
     },
     applications: ["Animal Bedding", "Biomass Fuel", "Erosion Control", "Composting", "Industrial Processing"],
