@@ -56,9 +56,9 @@ export function FeaturedProducts() {
                   <div className="absolute top-3 left-3">
                     <span className={cn(
                       "px-3 py-1 text-xs font-medium rounded-full",
-                      product.status === "Available" 
+                      product.status === "Ready Stock"
                         ? "bg-primary text-primary-foreground"
-                        : product.status === "Seasonal"
+                        : product.status === "Seasonal Supply"
                         ? "bg-accent text-accent-foreground"
                         : "bg-muted text-muted-foreground"
                     )}>

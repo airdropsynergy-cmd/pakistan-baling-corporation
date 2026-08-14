@@ -44,9 +44,11 @@ const applicationIcons: Record<string, typeof Leaf> = {
 }
 
 export async function generateStaticParams() {
-  return products.map((product) => ({
-    slug: product.slug,
-  }))
+  return products
+    .filter((product) => product.available)
+    .map((product) => ({
+      slug: product.slug,
+    }))
 }
 
 export async function generateMetadata({ 
@@ -56,8 +58,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const product = products.find((p) => p.slug === slug)
-  
-  if (!product) {
+
+  if (!product || !product.available) {
     return {
       title: "Product Not Found | Pakistan Baling Corporation",
     }
@@ -96,7 +98,7 @@ export default async function ProductDetailPage({
   const { slug } = await params
   const product = products.find((p) => p.slug === slug)
 
-  if (!product) {
+  if (!product || !product.available) {
     notFound()
   }
 

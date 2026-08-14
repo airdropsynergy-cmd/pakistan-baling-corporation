@@ -28,7 +28,7 @@ const slides = [
   {
     id: 3,
     title: "Sugarcane Bagasse",
-    subtitle: "Limited Stock Avaliable",
+    subtitle: "Ready Stock Available",
     description: "Sustainable bagasse for high-efficiency biomass power generation and industrial applications.",
     cta: "View Details",
     href: "/products/Sugarcane Bagasse",

@@ -83,7 +83,7 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Our Products</h3>
             <ul className="space-y-3">
-              {products.slice(0, 5).map((product) => (
+              {products.filter((product) => product.available).slice(0, 5).map((product) => (
                 <li key={product.id}>
                   <Link
                     href={`/products/${product.slug}`}
