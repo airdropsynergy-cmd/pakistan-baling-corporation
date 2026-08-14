@@ -107,6 +107,52 @@ export const products: Product[] = [
     productType: "feed"
   },
   {
+    id: "7",
+    slug: "sugarcane-bagasse",
+    name: "Sugarcane Bagasse",
+    category: "Biomass Fuel",
+    image: "/images/products/bagasse/hero-1.webp",
+    heroImages: [
+      "/images/products/bagasse/hero-1.webp",
+      "/images/products/bagasse/hero-2.webp",
+      "/images/products/bagasse/hero-3.webp"
+    ],
+    shortDescription: "Sustainable sugarcane bagasse for high-efficiency biomass power generation.",
+    fullDescription: "Sugarcane bagasse is the fibrous residue remaining after sugarcane stalks are crushed to extract juice. This renewable biomass fuel offers excellent calorific value and is widely used in cogeneration plants, paper mills, and industrial facilities. Our processed bagasse meets strict quality standards for moisture content and particle size.",
+    specifications: {
+      baleDensity: "120-150 kg/m³",
+      moistureContent: "45-52%",
+      baleDimensions: "Bulk or baled",
+      baleWeight: "300-400 kg bales",
+      packaging: "Compressed bales or bulk",
+      origin: "Sugar mills"
+    },
+    containerInfo: {
+      baleWeight: "300-400 kg",
+      balesPerContainer: "55-60 bales",
+      containerType: "40ft High Cube",
+      approximateNetWeight: "18-22 MT",
+      loadingMethod: "Forklift loading"
+    },
+    technicalProperties: {
+      grossCalorificValue: "4,000-4,400 kcal/kg (dry basis)",
+      netCalorificValue: "1,800-2,200 kcal/kg (wet basis)",
+      lhv: "7-9 MJ/kg (wet)",
+      ashContent: "2-4%",
+      moisture: "45-52%"
+    },
+    applications: ["Biomass Power Plants", "Paper & Pulp Industry", "Cogeneration Plants", "Particle Board Manufacturing"],
+    documents: {
+      testingReport: "#",
+      productProfile: "#",
+      technicalDatasheet: "#"
+    },
+    available: true,
+    seasonal: true,
+    status: "Ready Stock",
+    productType: "fuel"
+  },
+  {
     id: "2",
     slug: "alfalfa",
     name: "Alfalfa",
@@ -335,52 +381,6 @@ export const products: Product[] = [
     seasonal: true,
     status: "Seasonal Supply",
     productType: "both"
-  },
-  {
-    id: "7",
-    slug: "sugarcane-bagasse",
-    name: "Sugarcane Bagasse",
-    category: "Biomass Fuel",
-    image: "/images/products/bagasse/hero-1.webp",
-    heroImages: [
-      "/images/products/bagasse/hero-1.webp",
-      "/images/products/bagasse/hero-2.webp",
-      "/images/products/bagasse/hero-3.webp"
-    ],
-    shortDescription: "Sustainable sugarcane bagasse for high-efficiency biomass power generation.",
-    fullDescription: "Sugarcane bagasse is the fibrous residue remaining after sugarcane stalks are crushed to extract juice. This renewable biomass fuel offers excellent calorific value and is widely used in cogeneration plants, paper mills, and industrial facilities. Our processed bagasse meets strict quality standards for moisture content and particle size.",
-    specifications: {
-      baleDensity: "120-150 kg/m³",
-      moistureContent: "45-52%",
-      baleDimensions: "Bulk or baled",
-      baleWeight: "300-400 kg bales",
-      packaging: "Compressed bales or bulk",
-      origin: "Sugar mills"
-    },
-    containerInfo: {
-      baleWeight: "300-400 kg",
-      balesPerContainer: "55-60 bales",
-      containerType: "40ft High Cube",
-      approximateNetWeight: "18-22 MT",
-      loadingMethod: "Forklift loading"
-    },
-    technicalProperties: {
-      grossCalorificValue: "4,000-4,400 kcal/kg (dry basis)",
-      netCalorificValue: "1,800-2,200 kcal/kg (wet basis)",
-      lhv: "7-9 MJ/kg (wet)",
-      ashContent: "2-4%",
-      moisture: "45-52%"
-    },
-    applications: ["Biomass Power Plants", "Paper & Pulp Industry", "Cogeneration Plants", "Particle Board Manufacturing"],
-    documents: {
-      testingReport: "#",
-      productProfile: "#",
-      technicalDatasheet: "#"
-    },
-    available: true,
-    seasonal: true,
-    status: "Ready Stock",
-    productType: "fuel"
   }
 ];
 
