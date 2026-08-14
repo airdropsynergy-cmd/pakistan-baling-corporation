@@ -108,7 +108,8 @@ export default async function ProductDetailPage({
 
   // Build Key Facts with standardized 9 fields in exact order
   // 1. Bale Weight, 2. Full Container Load (40 FT), 3. Packaging Form, 4. Origin, 
-  // 5. Moisture Content, 6. Crude Protein, 7. Gross Calorific Value (GCV), 8. Ash Content, 9. Lower Heating Value (LHV)
+  // 5. Moisture Content, 6. Crude Protein, 7. Gross Calorific Value (GCV), 8. Ash Content,
+  // 9. Lower Heating Value (LHV) — or NDF instead when technicalProperties.ndf is set (e.g. Sugarcane Bagasse)
   const keyFacts: { label: string; value: string }[] = [
     { 
       label: "Bale Weight", 
@@ -142,10 +143,9 @@ export default async function ProductDetailPage({
       label: "Ash Content", 
       value: product.technicalProperties.ashContent || "N/A" 
     },
-    { 
-      label: "Lower Heating Value (LHV)", 
-      value: product.technicalProperties.lhv || "N/A" 
-    },
+    ...(product.technicalProperties.ndf
+      ? [{ label: "NDF", value: product.technicalProperties.ndf }]
+      : [{ label: "Lower Heating Value (LHV)", value: product.technicalProperties.lhv || "N/A" }]),
   ]
 
   const structuredData = {

@@ -32,6 +32,7 @@ export interface TechnicalProperties {
   nutritionalProfile?: string;
   // Common
   moisture?: string;
+  ndf?: string;
 }
 
 export interface Product {
@@ -121,25 +122,25 @@ export const products: Product[] = [
     fullDescription: "Sugarcane bagasse is the fibrous residue remaining after sugarcane stalks are crushed to extract juice. This renewable biomass fuel offers excellent calorific value and is widely used in cogeneration plants, paper mills, and industrial facilities. Our processed bagasse meets strict quality standards for moisture content and particle size.",
     specifications: {
       baleDensity: "120-150 kg/m³",
-      moistureContent: "45-52%",
+      moistureContent: "<12%",
       baleDimensions: "Bulk or baled",
-      baleWeight: "300-400 kg bales",
+      baleWeight: "30 KG Bale",
       packaging: "Compressed bales or bulk",
       origin: "Sugar mills"
     },
     containerInfo: {
-      baleWeight: "300-400 kg",
+      baleWeight: "30 KG Bale",
       balesPerContainer: "55-60 bales",
       containerType: "40ft High Cube",
-      approximateNetWeight: "18-22 MT",
+      approximateNetWeight: "25-27 MT",
       loadingMethod: "Forklift loading"
     },
     technicalProperties: {
       grossCalorificValue: "4,000-4,400 kcal/kg (dry basis)",
       netCalorificValue: "1,800-2,200 kcal/kg (wet basis)",
-      lhv: "7-9 MJ/kg (wet)",
       ashContent: "2-4%",
-      moisture: "45-52%"
+      moisture: "<12%",
+      ndf: "> 55%"
     },
     applications: ["Biomass Power Plants", "Paper & Pulp Industry", "Cogeneration Plants", "Particle Board Manufacturing"],
     documents: {
