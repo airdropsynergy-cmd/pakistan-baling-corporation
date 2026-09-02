@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
+import { SITE_URL } from '@/lib/site'
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -17,7 +18,7 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://pakbaling.com'),
+  metadataBase: new URL(SITE_URL),
 
   title: {
     default: 'Pakistan Baling Corporation | Agricultural Commodity & Biomass Exporter',
@@ -25,10 +26,10 @@ export const metadata: Metadata = {
   },
 
   description:
-    'Pakistan Baling Corporation exports premium baled agricultural commodities and biomass products including Rhode Grass, Alfalfa, Silage, Wheat Straw, Rice Straw, Rice Husk and Sugarcane Bagasse to global markets.',
+    'Pakistan Baling Corporation exports premium baled agricultural commodities and biomass products including Rhodes Grass, Alfalfa, Silage, Wheat Straw, Rice Straw, Rice Husk and Sugarcane Bagasse to global markets.',
 
   keywords: [
-    'Rhode Grass exporter',
+    'Rhodes Grass exporter',
     'Alfalfa exporter',
     'Silage supplier',
     'Wheat Straw exporter',
@@ -49,9 +50,9 @@ export const metadata: Metadata = {
       'Pakistan Baling Corporation | Agricultural Commodity & Biomass Exporter',
 
     description:
-      'Exporter of Rhode Grass, Alfalfa, Silage, Wheat Straw, Rice Straw, Rice Husk and Sugarcane Bagasse from Pakistan.',
+      'Exporter of Rhodes Grass, Alfalfa, Silage, Wheat Straw, Rice Straw, Rice Husk and Sugarcane Bagasse from Pakistan.',
 
-    url: 'https://pakbaling.com',
+    url: SITE_URL,
     siteName: 'Pakistan Baling Corporation',
     type: 'website',
     locale: 'en_PK',

@@ -6,7 +6,7 @@ import { products } from "@/data/products"
 import { cn } from "@/lib/utils"
 
 const productImages: Record<string, string> = {
-  "rhode-grass": "/images/products/rhode-grass/hero-1.webp",
+  "rhodes-grass": "/images/products/rhode-grass/hero-1.webp",
   "alfalfa": "/images/products/alfalfa/hero-1.webp",
   "silage": "/images/products/silage/hero-1.webp",
   "rice-husk": "/images/products/rice-husk/hero-1.webp",

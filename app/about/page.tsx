@@ -18,8 +18,12 @@ import Link from "next/link"
 import { timeline } from "@/data/products"
 
 export const metadata: Metadata = {
-  title: "About Us | BioMass Global",
-  description: "Learn about BioMass Global - a leading supplier and exporter of premium biomass products for animal feed, renewable energy, and agricultural applications.",
+  title: "About Us",
+  description:
+    "Pakistan Baling Corporation is a biomass baling and agricultural logistics company headquartered in Karachi, operating from Pakistan's export gateway at Port Qasim. Learn about our sourcing, high-density baling and supply capability.",
+  alternates: {
+    canonical: "/about",
+  },
 }
 
 const services = [

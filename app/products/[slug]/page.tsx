@@ -16,6 +16,7 @@ import {
 import { Button } from "@/components/ui/button"
 import ProductImageGallery from "@/components/products/product-image-gallery"
 import { products } from "@/data/products"
+import { absoluteUrl } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
 const applicationIcons: Record<string, typeof Leaf> = {
@@ -43,44 +44,50 @@ const applicationIcons: Record<string, typeof Leaf> = {
   "Particle Board Manufacturing": Factory,
 }
 
+// Every product URL is prerendered, including products that are currently
+// unavailable. Availability controls how the page presents itself, not whether
+// the page exists — an out-of-season product is unavailable, not nonexistent.
 export async function generateStaticParams() {
-  return products
-    .filter((product) => product.available)
-    .map((product) => ({
-      slug: product.slug,
-    }))
+  return products.map((product) => ({
+    slug: product.slug,
+  }))
 }
 
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: Promise<{ slug: string }> 
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
   const product = products.find((p) => p.slug === slug)
 
-  if (!product || !product.available) {
+  if (!product) {
     return {
-      title: "Product Not Found | Pakistan Baling Corporation",
+      title: "Product Not Found",
     }
   }
 
+  // Titles omit the brand here: the root layout applies the
+  // "%s | Pakistan Baling Corporation" template. Including it again produced a
+  // duplicated suffix in the rendered <title>.
+  const title = `${product.name} Exporter & Supplier`
+
  return {
-  title: `${product.name} Exporter & Supplier | Pakistan Baling Corporation`,
-  description: product.shortDescription,
+  title,
+  description: product.metaDescription,
 
   alternates: {
     canonical: `/products/${product.slug}`,
   },
 
   openGraph: {
-  title: `${product.name} Exporter & Supplier | Pakistan Baling Corporation`,
-  description: product.shortDescription,
-  url: `https://pakbaling.com/products/${product.slug}`,
+  title: `${title} | Pakistan Baling Corporation`,
+  description: product.metaDescription,
+  url: absoluteUrl(`/products/${product.slug}`),
   type: "website",
   images: [
     {
-      url: `https://pakbaling.com${product.heroImages[0]}`,
+      url: absoluteUrl(product.heroImages[0]),
       width: 1200,
       height: 630,
       alt: product.name,
@@ -98,10 +105,14 @@ export default async function ProductDetailPage({
   const { slug } = await params
   const product = products.find((p) => p.slug === slug)
 
-  if (!product || !product.available) {
+  // Only a genuinely unknown slug is a 404. Unavailable products keep their URL
+  // and render with an availability notice instead.
+  if (!product) {
     notFound()
   }
 
+  // Related products still respect availability — an out-of-season product is
+  // reachable by URL but is not promoted around the site.
   const relatedProducts = products
     .filter((p) => p.id !== product.id && p.available)
     .slice(0, 4)
@@ -148,17 +159,17 @@ export default async function ProductDetailPage({
       : [{ label: "Lower Heating Value (LHV)", value: product.technicalProperties.lhv || "N/A" }]),
   ]
 
+  const productUrl = absoluteUrl(`/products/${product.slug}`)
+
   const structuredData = {
   "@context": "https://schema.org",
   "@type": "Product",
-"@id": `https://pakbaling.com/products/${product.slug}#product`,
+"@id": `${productUrl}#product`,
 
   name: product.name,
   description: product.shortDescription,
 
-  image: product.heroImages.map(
-  (img) => `https://pakbaling.com${img}`
-),
+  image: product.heroImages.map((img) => absoluteUrl(img)),
 
   brand: {
     "@type": "Brand",
@@ -167,13 +178,13 @@ export default async function ProductDetailPage({
 
   manufacturer: {
   "@type": "Organization",
-  "@id": "https://pakbaling.com/#organization",
+  "@id": absoluteUrl("/#organization"),
   name: "Pakistan Baling Corporation",
 },
 
   category: product.category,
 
-  url: `https://pakbaling.com/products/${product.slug}`,
+  url: productUrl,
 
   additionalProperty: keyFacts
     .filter((fact) => fact.value !== "N/A")
@@ -232,13 +243,20 @@ export default async function ProductDetailPage({
                 {product.shortDescription}
               </p>
 
-<div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
+<div className={cn(
+  "rounded-lg border p-4",
+  product.available
+    ? "border-primary/20 bg-primary/5"
+    : "border-border bg-muted/50"
+)}>
   <p className="text-sm font-semibold text-foreground mb-1">
-    Availability Status: {product.status}
+    Availability Status: {product.available ? product.status : "Currently Unavailable"}
   </p>
 
   <p className="text-sm text-muted-foreground">
-    {product.status === "Ready Stock"
+    {!product.available
+      ? "This product is not being supplied at present. Contact our team to discuss upcoming availability and advance bookings."
+      : product.status === "Ready Stock"
       ? "Available for immediate supply. Contact our team for quotations."
       : product.status === "Seasonal Supply"
       ? "Available during harvest season or through advance booking. Advance bookings are open."
@@ -250,7 +268,7 @@ export default async function ProductDetailPage({
                 <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
                   <Link href="/contact">
                     <FileText className="w-5 h-5 mr-2" />
-                    Request Quote
+                    {product.available ? "Request Quote" : "Enquire About Availability"}
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
@@ -283,6 +301,32 @@ export default async function ProductDetailPage({
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Pricing & Enquiry — pricing is quoted per order; no indicative
+              price is published because none is held in the product data. */}
+          <div className="mt-6 bg-card rounded-xl border border-border p-6">
+            <h3 className="text-lg font-semibold text-foreground mb-2">
+              Pricing &amp; Enquiry
+            </h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              {product.name} is quoted per order. Pricing depends on bale format, order
+              quantity, delivery terms and destination, so we issue a written quotation
+              against your specific requirement. Share your target quantity, preferred bale
+              size and destination and our team will respond with current pricing and lead
+              times.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Link href="/contact">
+                  <FileText className="w-4 h-4 mr-2" />
+                  Request a Quotation
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
+                <Link href="/export">Export &amp; Shipping Information</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

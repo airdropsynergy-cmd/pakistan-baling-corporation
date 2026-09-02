@@ -44,6 +44,12 @@ export interface Product {
   heroImages: string[];
   shortDescription: string;
   fullDescription: string;
+  /**
+   * Search-result snippet for this product's <meta name="description">.
+   * Kept separate from `shortDescription` so on-page copy stays unchanged
+   * while each page can carry a distinct, buyer-oriented description.
+   */
+  metaDescription: string;
   specifications: ProductSpecifications;
   containerInfo: ContainerInfo;
   technicalProperties: TechnicalProperties;
@@ -63,8 +69,8 @@ export interface Product {
 export const products: Product[] = [
   {
     id: "1",
-    slug: "rhode-grass",
-    name: "Rhode Grass",
+    slug: "rhodes-grass",
+    name: "Rhodes Grass",
     category: "Animal Feed",
     image: "/images/products/rhode-grass/hero-1.webp",
     heroImages: [
@@ -72,8 +78,9 @@ export const products: Product[] = [
       "/images/products/rhode-grass/hero-2.webp",
       "/images/products/rhode-grass/hero-3.webp"
     ],
-    shortDescription: "Premium quality Rhode Grass hay, ideal for livestock feed with high nutritional value.",
-    fullDescription: "Our Rhode Grass (Chloris gayana) is cultivated under optimal conditions to ensure maximum nutritional content. This versatile grass is widely recognized for its excellent palatability and digestibility, making it a preferred choice for dairy and livestock farmers. Harvested at peak maturity and carefully processed to maintain its nutritional integrity, our Rhode Grass bales provide consistent quality for animal feed applications.",
+    shortDescription: "Premium quality Rhodes Grass hay, ideal for livestock feed with high nutritional value.",
+    fullDescription: "Our Rhodes Grass (Chloris gayana), also commonly written as Rhode Grass, is cultivated under optimal conditions to ensure maximum nutritional content. This versatile grass is widely recognized for its excellent palatability and digestibility, making it a preferred choice for dairy and livestock farmers. Harvested at peak maturity and carefully processed to maintain its nutritional integrity, our Rhodes Grass bales provide consistent quality for animal feed applications.",
+    metaDescription: "Rhodes Grass hay supplier and exporter in Pakistan. Baled Chloris gayana for dairy, livestock, horse and camel feed — 20-30 KG, 300 KG and 600 KG bales, 40ft container loads. Request a quote.",
     specifications: {
       baleDensity: "180-220 kg/m³",
       moistureContent: "12-14%",
@@ -120,6 +127,7 @@ export const products: Product[] = [
     ],
     shortDescription: "Sustainable sugarcane bagasse for high-efficiency biomass power generation.",
     fullDescription: "Sugarcane bagasse is the fibrous residue remaining after sugarcane stalks are crushed to extract juice. This renewable biomass fuel offers excellent calorific value and is widely used in cogeneration plants, paper mills, and industrial facilities. Our processed bagasse meets strict quality standards for moisture content and particle size.",
+    metaDescription: "Sugarcane bagasse supplier and exporter from Pakistan. Baled biomass fuel for power plants, industrial boilers, cogeneration and paper mills — GCV 4,000-4,400 kcal/kg, ash 2-4%, moisture under 12%.",
     specifications: {
       baleDensity: "120-150 kg/m³",
       moistureContent: "<12%",
@@ -166,6 +174,7 @@ export const products: Product[] = [
     ],
     shortDescription: "High-protein Alfalfa hay, perfect for dairy cattle and premium livestock nutrition.",
     fullDescription: "Our premium Alfalfa (Medicago sativa) is renowned for its exceptional protein content and nutritional profile. Grown in carefully managed fields and harvested at optimal cutting stages, our Alfalfa delivers consistent quality that dairy farmers and livestock producers demand. The high protein and calcium content makes it ideal for lactating animals and growing livestock.",
+    metaDescription: "Alfalfa hay supplier and exporter in Pakistan. Baled Medicago sativa for dairy cattle, horses and camels — 16-22% crude protein, 28-35 kg bales, 24-26 MT per 40ft container. Seasonal supply.",
     specifications: {
       baleDensity: "200-250 kg/m³",
       moistureContent: "10-13%",
@@ -212,6 +221,7 @@ export const products: Product[] = [
     ],
     shortDescription: "Fermented high-energy silage for enhanced livestock nutrition and milk production.",
     fullDescription: "Our premium silage is produced through controlled fermentation of fresh forage crops, preserving nutrients and enhancing digestibility. The anaerobic fermentation process creates beneficial organic acids that aid digestion and improve feed efficiency. Ideal for dairy operations seeking to maximize milk production and maintain herd health throughout the year.",
+    metaDescription: "Silage supplier in Pakistan for dairy and beef cattle. Wrapped fermented forage bales of 400-500 kg for TMR mixing and livestock fattening — 10-14% crude protein. Contact us for current availability and rates.",
     specifications: {
       baleDensity: "700-800 kg/m³",
       moistureContent: "60-70%",
@@ -258,6 +268,7 @@ export const products: Product[] = [
     ],
     shortDescription: "Sustainable rice husk biomass for industrial fuel and energy generation applications.",
     fullDescription: "Rice husk is an abundant agricultural byproduct with excellent fuel properties. Our processed rice husk offers consistent quality for biomass power plants, industrial boilers, and renewable energy facilities. With high calorific value and low ash content, it provides an efficient and sustainable fuel source for various industrial applications.",
+    metaDescription: "Rice husk biomass fuel supplier and exporter from Pakistan. Bagged or bulk husk for industrial boilers, brick kilns, cement plants and power generation — GCV 3,300-3,600 kcal/kg, 22-24 MT per container.",
     specifications: {
       baleDensity: "100-130 kg/m³",
       moistureContent: "8-12%",
@@ -304,6 +315,7 @@ export const products: Product[] = [
     ],
     shortDescription: "Versatile rice straw bales for animal bedding, biomass fuel, and industrial applications.",
     fullDescription: "Our rice straw bales offer excellent versatility for multiple applications. Sourced from sustainable rice farming operations, this agricultural residue provides cost-effective solutions for animal bedding, biomass fuel, mushroom cultivation, and paper manufacturing. High-density baling ensures efficient transportation and storage.",
+    metaDescription: "Rice straw bale supplier and exporter from Pakistan. Compressed 20-25 kg bales for animal bedding, mushroom cultivation, composting and biomass fuel — up to 1,000 bales per 40ft container.",
     specifications: {
       baleDensity: "150-180 kg/m³",
       moistureContent: "10-14%",
@@ -350,6 +362,7 @@ export const products: Product[] = [
     ],
     shortDescription: "High-quality wheat straw for animal bedding, biomass energy, and industrial use.",
     fullDescription: "Premium wheat straw processed and baled to meet exacting quality standards. Our wheat straw serves diverse applications from comfortable animal bedding to efficient biomass fuel. With excellent absorbency and consistent quality, it is a preferred choice for equestrian facilities, dairy farms, and biomass energy producers.",
+    metaDescription: "Wheat straw supplier and exporter from Pakistan. Double-strapped 22-28 kg bales for livestock and equestrian bedding, fodder and biomass fuel — GCV 3,800-4,200 kcal/kg, 22-24 MT per 40ft container.",
     specifications: {
       baleDensity: "160-200 kg/m³",
       moistureContent: "10-14%",

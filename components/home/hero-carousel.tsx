@@ -9,11 +9,11 @@ import { cn } from "@/lib/utils"
 const slides = [
   {
     id: 1,
-    title: "Premium Rhode Grass",
+    title: "Premium Rhodes Grass",
     subtitle: "For Optimal Livestock Nutrition",
     description: "Carefully harvested, expertly baled, and prepared to meet the nutritional demands of livestock producers worldwide.",
     cta: "Explore Products",
-    href: "/products/rhode-grass",
+    href: "/products/rhodes-grass",
     image: "/hero-1.webp"
   },
   {
@@ -22,7 +22,7 @@ const slides = [
     subtitle: "Reducing inefficiencies across agricultural supply chain",
     description: "Delivering high-quality agricultural products through strategic infastructure, advanced processing and reliable distribution.",
     cta: "Learn More",
-    href: "/products/Wheat Straw",
+    href: "/products/wheat-straw",
     image: "/hero-2.webp"
   },
   {
@@ -31,7 +31,7 @@ const slides = [
     subtitle: "Ready Stock Available",
     description: "Sustainable bagasse for high-efficiency biomass power generation and industrial applications.",
     cta: "View Details",
-    href: "/products/Sugarcane Bagasse",
+    href: "/products/sugarcane-bagasse",
     image: "/hero-6.webp"
   },
   {

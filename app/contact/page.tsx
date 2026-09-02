@@ -12,8 +12,12 @@ import { Button } from "@/components/ui/button"
 import { ContactForm } from "@/components/contact/contact-form"
 
 export const metadata: Metadata = {
-  title: "Contact Us | Pakistan Baling Corporation",
-  description: "Get in touch with PBC for quotations, product information, export support, and logistics assistance. We are here to help with all your biomass and agricultural product needs.",
+  title: "Contact Us",
+  description:
+    "Contact Pakistan Baling Corporation in Karachi for quotations on baled fodder, animal feed and biomass fuel. Send us your product, quantity and destination for current pricing, availability and export support.",
+  alternates: {
+    canonical: "/contact",
+  },
 }
 
 export default function ContactPage() {
