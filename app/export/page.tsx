@@ -132,27 +132,27 @@ const exportSteps = [
 const markets = [
   {
     country: "United Arab Emirates",
-    short: "UAE",
-    ports: "Jebel Ali (Dubai)",
+    route: "Port Qasim → Jebel Ali, Dubai",
     context:
-      "The region's principal hay import gateway. Feed demand is concentrated around Dubai, Abu Dhabi and Al Ain, where local forage production is limited by climate.",
-    demand: "Dairy, livestock and equestrian feed; industrial biomass",
+      "Jebel Ali is the region's principal gateway for imported hay, and the UAE is as much a redistribution point as an end market — a significant share of cargo landed there moves on into the wider Gulf. Feed demand is concentrated around Dubai, Abu Dhabi and Al Ain, where domestic forage production is limited by climate and water.",
+    demand: "Dairy, livestock, equestrian and camel feed",
+    note: "Short sea leg from Karachi relative to competing origins.",
   },
   {
     country: "Saudi Arabia",
-    short: "KSA",
-    ports: "Dammam (east coast), Jeddah (west coast)",
+    route: "Port Qasim → Dammam or Jeddah",
     context:
-      "The largest forage import market in the region, split across two coasts. Buyers typically route to whichever port serves their operation, which affects freight and lead time.",
-    demand: "Large-scale dairy and livestock feed",
+      "The largest forage import market in the region, and the one where routing genuinely matters: Dammam serves the Eastern Province from the Arabian Gulf, Jeddah the west from the Red Sea. Which port a buyer nominates changes both freight and transit, so it is worth settling at enquiry stage rather than afterwards.",
+    demand: "Large-scale dairy and livestock operations",
+    note: "Fodder from outside the GCC requires an import approval held by the importer.",
   },
   {
     country: "Oman",
-    short: "Oman",
-    ports: "Sohar, Salalah",
+    route: "Port Qasim → Sohar or Salalah",
     context:
-      "Served both directly and through regional distribution. Two widely separated ports mean routing is usually decided by where the receiving operation sits.",
+      "Supplied both directly and through Gulf regional distribution. Sohar serves the populated north around Muscat and the Batinah coast; Salalah sits roughly a thousand kilometres south, so the receiving operation's location — not the shipping line — usually decides the discharge port.",
     demand: "Livestock and dairy feed",
+    note: "Feed imports are permitted through Oman's agriculture and fisheries ministry.",
   },
 ]
 
@@ -295,7 +295,17 @@ export default function ExportPage() {
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             {/* Rhodes Grass */}
-            <div className="bg-card rounded-xl border border-border p-6 flex flex-col">
+            <div className="bg-card rounded-xl border border-border overflow-hidden flex flex-col">
+              <div className="relative aspect-[16/9]">
+                <Image
+                  src="/hero-1.webp"
+                  alt="Baled Rhodes Grass hay prepared for export from Pakistan"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="p-6 flex flex-col flex-1">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                   <Leaf className="w-5 h-5 text-primary" />
@@ -321,10 +331,21 @@ export default function ExportPage() {
                 Rhodes Grass specifications
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Link>
+              </div>
             </div>
 
             {/* Sugarcane Bagasse */}
-            <div className="bg-card rounded-xl border border-border p-6 flex flex-col">
+            <div className="bg-card rounded-xl border border-border overflow-hidden flex flex-col">
+              <div className="relative aspect-[16/9]">
+                <Image
+                  src="/hero-1.webp"
+                  alt="Baled sugarcane bagasse biomass fuel prepared for export from Pakistan"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="p-6 flex flex-col flex-1">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                   <Flame className="w-5 h-5 text-primary" />
@@ -349,6 +370,7 @@ export default function ExportPage() {
                 Sugarcane Bagasse specifications
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Link>
+              </div>
             </div>
           </div>
 
@@ -385,9 +407,11 @@ export default function ExportPage() {
               Markets We Supply
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Our export focus is the Gulf, where climate limits domestic forage production
-              and feed is imported at scale. Sailing times from Karachi are short relative
-              to competing origins, which matters for both freight cost and lead time.
+              We ship out of Port Qasim, Karachi, into the Gulf — a short sea leg compared
+              with the North American, Australian and Southern African origins that supply
+              the same buyers. Baled forage is our principal export line into these markets;
+              sugarcane bagasse and agricultural residues are supplied to industrial and
+              energy users and quoted on the same basis.
             </p>
           </div>
 
@@ -399,28 +423,36 @@ export default function ExportPage() {
                   <Anchor className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                   <div>
                     <span className="block text-xs text-muted-foreground uppercase tracking-wider mb-0.5">
-                      Usual discharge ports
+                      Shipping route
                     </span>
-                    <span className="text-sm font-medium text-foreground">{m.ports}</span>
+                    <span className="text-sm font-medium text-foreground">{m.route}</span>
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
                   {m.context}
                 </p>
-                <div>
-                  <span className="block text-xs text-muted-foreground uppercase tracking-wider mb-1">
-                    Primary demand
-                  </span>
-                  <span className="text-sm text-foreground">{m.demand}</span>
+                <div className="space-y-3">
+                  <div>
+                    <span className="block text-xs text-muted-foreground uppercase tracking-wider mb-1">
+                      Primary demand
+                    </span>
+                    <span className="text-sm text-foreground">{m.demand}</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground leading-relaxed pt-3 border-t border-border">
+                    {m.note}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
 
           <p className="text-sm text-muted-foreground mt-6 max-w-3xl leading-relaxed">
-            Import permits and clearance are handled by the importer in the destination
-            market. We supply the origin-side documentation those applications require, and
-            we can arrange fumigation and third-party inspection on request.
+            Import permits and customs clearance are the importer&apos;s responsibility in each
+            of these markets. From our side we supply the origin documentation those
+            applications rely on — certificate of analysis, phytosanitary certificate and
+            certificate of origin — with fumigation and third-party inspection available on
+            request. If your buyer or authority requires a specific certificate or inspection
+            body, raise it before the order is placed.
           </p>
         </div>
       </section>
@@ -441,102 +473,62 @@ export default function ExportPage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
-            <div className="space-y-5">
-              <div className="bg-card rounded-xl border border-border p-6">
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  Small bales &mdash; approx. 20&ndash;30 kg
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Our high-density small-bale configuration, and the format most often
-                  requested for export. A one-person lift at the far end, and the highest
-                  payload we load &mdash; approximately 24&ndash;26 tonnes into a 40 ft
-                  high-cube, depending on product and bale configuration.
-                </p>
-              </div>
-
-              <div className="bg-card rounded-xl border border-border p-6">
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  Large bales &mdash; double-pressed, 600 kg and above
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Fewer units to move, suited to operations with mechanical handling and
-                  covered storage. Single-press large bales are also available on request
-                  where a lighter format is preferred.
-                </p>
-              </div>
-
-              <div className="bg-card rounded-xl border border-border overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-border bg-muted/30">
-                      <th className="px-6 py-3 text-left text-sm font-semibold text-foreground">Format</th>
-                      <th className="px-6 py-3 text-left text-sm font-semibold text-foreground">Handling</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-border">
-                    <tr>
-                      <td className="px-6 py-4 text-sm font-medium text-foreground">Small bales</td>
-                      <td className="px-6 py-4 text-sm text-muted-foreground">
-                        Manual and forklift handleable<sup className="text-primary">*</sup>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="px-6 py-4 text-sm font-medium text-foreground">Large bales</td>
-                      <td className="px-6 py-4 text-sm text-muted-foreground">Forklift handling</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div className="space-y-5">
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-border">
-                <Image
-                  src="/hero-1.webp"
-                  alt="Baled Rhodes Grass hay strapped into export bundles for container loading at Port Qasim"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-
-              <div className="bg-card rounded-xl border border-border p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <Boxes className="w-5 h-5 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground">
-                    <sup className="text-primary">*</sup> The bundled small bale
-                  </h3>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                  Small bales do not have to be handled one at a time. We can strap them
-                  into bundles &mdash; typically ten bales to a bundle, so a bundle of
-                  30 kg bales makes up roughly 300 kg &mdash; which is then moved by
-                  forklift like any large bale.
-                </p>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                  Cut the strapping and the bundle separates back into ten individual
-                  bales. You get mechanical handling through the port and the container,
-                  and a one-person bale at the feed face, without choosing between them.
-                </p>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Speak with your PBC supply representative for format selection and
-                  shipment-specific configuration.
-                </p>
-              </div>
-            </div>
+          <div className="bg-card rounded-xl border border-border overflow-x-auto">
+            <table className="w-full min-w-[36rem]">
+              <thead>
+                <tr className="border-b border-border bg-muted/30">
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Bale format</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Typical size</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Handling</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                <tr>
+                  <td className="px-6 py-4 text-sm font-medium text-foreground">Small bale</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">
+                    Approx. 20&ndash;30 kg, high-density
+                  </td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">
+                    Manual and forklift handleable
+                    <sup className="text-primary font-semibold ml-0.5">*</sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm font-medium text-foreground">Large bale</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">
+                    Double-pressed, 600 kg and above
+                  </td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Forklift handling</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm font-medium text-foreground">Single-press bale</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Available on request</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Forklift handling</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
-          <p className="text-sm text-muted-foreground mt-6 max-w-3xl leading-relaxed">
-            Figures are indicative and vary with product, bale format and material density.
-            Per-product specifications are on each{" "}
-            <Link href="/products" className="text-primary hover:underline font-medium">
-              product page
-            </Link>
-            , and confirmed loading figures are issued with your quotation.
-          </p>
+          <div className="mt-5 max-w-3xl space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              <sup className="text-primary font-semibold">*</sup> Small bales can be packed
+              into PET or twine-strapped bundles of approximately 300 kg &mdash; for example
+              ten 30 kg bales to a bundle. The bundle is handled by forklift through the port
+              and into the container; cutting the strapping releases the individual bales for
+              manual handling at the receiving end. In the small-bale format this loads
+              roughly 24&ndash;26 tonnes into a 40 ft high-cube, depending on product and
+              configuration.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Figures are indicative and vary with product, bale format and material density.
+              Per-product specifications are on each{" "}
+              <Link href="/products" className="text-primary hover:underline font-medium">
+                product page
+              </Link>
+              . Speak with your PBC supply representative for detailed format selection and
+              shipment-specific configuration.
+            </p>
+          </div>
         </div>
       </section>
 
