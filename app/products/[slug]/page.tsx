@@ -312,12 +312,13 @@ export default async function ProductDetailPage({
           </div>
 
           <div className="bg-card rounded-xl border border-border overflow-x-auto">
-            <table className="w-full min-w-[34rem]">
+            <table className="w-full min-w-[40rem]">
               <thead>
                 <tr className="border-b border-border bg-muted/30">
                   <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Bale format</th>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Typical size</th>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Handling</th>
+                  <th className="px-6 py-4 text-right text-sm font-semibold text-foreground">Approx. load / 40 ft HC</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
@@ -328,16 +329,19 @@ export default async function ProductDetailPage({
                     Manual &amp; machine handling
                     <sup className="text-primary font-semibold ml-0.5">*</sup>
                   </td>
+                  <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">Approx. 24&ndash;26 t</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-foreground">Large bale</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Double-pressed</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Machine handling</td>
+                  <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">Approx. 19&ndash;21 t</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-foreground">Single-press bale</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Available on request</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Machine handling</td>
+                  <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">Approx. 10&ndash;12 t</td>
                 </tr>
               </tbody>
             </table>
