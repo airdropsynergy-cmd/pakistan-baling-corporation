@@ -263,25 +263,48 @@ export default async function ProductDetailPage({
       : "Available through our sourcing network. Contact us for availability and lead times."}
   </p>
 </div>
-              {/* Action Buttons */}
-              <div className="flex flex-wrap gap-4 pt-4">
+              {/* Action row: one CTA plus a static availability tag. The tag is
+                  deliberately not a link — small-bale supply is a PBC USP and
+                  is available across all products. */}
+              <div className="flex flex-wrap items-center gap-4 pt-4">
                 <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
                   <Link href="/contact">
                     <FileText className="w-5 h-5 mr-2" />
                     {product.available ? "Request Quote" : "Enquire About Availability"}
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
-                  <Link href="/contact">Contact Sales</Link>
-                </Button>
+                <div className="inline-flex items-center gap-2 rounded-md border-2 border-primary bg-primary/10 px-5 py-2 text-primary font-semibold">
+                  <Package className="w-5 h-5" />
+                  Small Bale Size Available
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 6. Key Facts (combined Product Specs, Container Info, Technical Properties) */}
+      {/* 6. Product Description — placed above Key Facts: the narrative is the
+          essential read and comes before the specification table. */}
       <section className="py-16 lg:py-20 bg-secondary/30">
+        <div className="container mx-auto px-4 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+            Product Description
+          </h2>
+          {/* Note: prose classes are not used here — the @tailwindcss/typography
+              plugin is not installed — so paragraph spacing is set with space-y. */}
+          <div className="max-w-4xl text-muted-foreground space-y-5">
+            {/* Descriptions may contain multiple paragraphs separated by \n\n */}
+            {product.fullDescription.split("\n\n").map((paragraph, index) => (
+              <p key={index} className="leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Key Facts (combined Product Specs, Container Info, Technical Properties) */}
+      <section className="py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
             Key Facts
@@ -327,26 +350,6 @@ export default async function ProductDetailPage({
                 <Link href="/export">Export &amp; Shipping Information</Link>
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Product Description */}
-      <section className="py-16 lg:py-20 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-            Product Description
-          </h2>
-          {/* Note: the prose classes previously here were inert — the
-              @tailwindcss/typography plugin is not installed — so paragraph
-              spacing is set explicitly with space-y. */}
-          <div className="max-w-4xl text-muted-foreground space-y-5">
-            {/* Descriptions may contain multiple paragraphs separated by \n\n */}
-            {product.fullDescription.split("\n\n").map((paragraph, index) => (
-              <p key={index} className="leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
           </div>
         </div>
       </section>
