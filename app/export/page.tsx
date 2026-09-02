@@ -13,6 +13,10 @@ import {
   Flame,
   Anchor,
   ArrowRight,
+  Layers,
+  Gauge,
+  BadgeCheck,
+  Boxes,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { products } from "@/data/products"
@@ -21,7 +25,7 @@ import { absoluteUrl } from "@/lib/site"
 export const metadata: Metadata = {
   title: "Agricultural & Biomass Export from Pakistan",
   description:
-    "Pakistan Baling Corporation exports baled Rhodes Grass hay and sugarcane bagasse from Port Qasim, Karachi to feed and industrial buyers in the UAE, Saudi Arabia and Oman — container payloads, export documentation and enquiry process.",
+    "Pakistan Baling Corporation exports baled Rhodes Grass hay and sugarcane bagasse from Port Qasim, Karachi to feed and industrial buyers in the UAE, Saudi Arabia and Oman — flexible bale formats, container loading, export documentation and enquiry.",
   alternates: {
     canonical: "/export",
   },
@@ -47,6 +51,37 @@ export const metadata: Metadata = {
 const exportableProducts = products.filter((p) => p.available)
 
 const leadProducts = ["rhodes-grass", "sugarcane-bagasse"]
+
+// Supply advantages that matter specifically to an export buyer. Each reflects
+// capability documented in the product and company profiles — grading before
+// pressing, flexible press configuration, high-density pressing, and the
+// bundle configuration. No new commercial claims.
+const exportAdvantages = [
+  {
+    title: "Graded before pressing",
+    description:
+      "Material is conditioned to a standard moisture and graded before it reaches the press, not baled as it comes off the field.",
+    icon: BadgeCheck,
+  },
+  {
+    title: "Flexible bale formats",
+    description:
+      "Small, double-pressed and single-press configurations from the same graded material, chosen around how you handle and ship it.",
+    icon: Layers,
+  },
+  {
+    title: "High-density pressing",
+    description:
+      "Pressed at our own facility to around 375 kg/m³ in the small-bale format, which is what puts payload into the container.",
+    icon: Gauge,
+  },
+  {
+    title: "Bundled for handling",
+    description:
+      "Small bales can be strapped into forklift-handleable bundles that separate back into individual bales at your end.",
+    icon: Boxes,
+  },
+]
 
 // Enquiry-to-shipment sequence. Each step reflects capability described in the
 // company and product profiles — sourcing, conditioning, baling, grading,
@@ -184,31 +219,34 @@ export default function ExportPage() {
       <section className="py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
-            <div className="lg:col-span-2 space-y-4">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                One Accountable Source, Farm to Container
+            <div className="lg:col-span-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                Supply Prepared for the Container
               </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Pakistan Baling Corporation is an agricultural commodity and biomass
-                exporter headquartered in Karachi, operating from Pakistan&apos;s principal
-                export gateway at Port Qasim. We buy at farm gate and at the mill across
-                catchments in Sindh, and everything between that point and the container
-                is ours: procurement, conditioning, grading, high-density baling, testing
-                and loading.
+              <p className="text-muted-foreground leading-relaxed mb-8 max-w-2xl">
+                Forage and crop residue in Pakistan are abundant and competitively priced
+                at source. The conventional chain gives much of that advantage away —
+                field-baled, under-dried, and shipped at densities that leave part of the
+                container&apos;s payload unused. We prepare material for export instead of
+                simply trading it, and that is what an international buyer is actually
+                buying from us.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                That matters to an importer for a practical reason. Forage and crop
-                residue in Pakistan are abundant and competitively priced at source, but
-                the conventional chain gives much of that advantage away — field-baled,
-                under-dried, traded through intermediaries and shipped at densities that
-                leave a significant part of the container&apos;s payload unused. Running the
-                chain end to end is what allows us to put specification, schedule and
-                payload in writing.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Every lot is graded and tested in our own laboratory before it is pressed
-                and loaded, and each shipment goes out against a written specification.
-              </p>
+
+              <div className="grid sm:grid-cols-2 gap-5">
+                {exportAdvantages.map((item) => (
+                  <div key={item.title} className="flex gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="bg-card rounded-xl border border-border p-6 space-y-5 h-fit">
@@ -390,56 +428,114 @@ export default function ExportPage() {
       {/* Formats & container payload */}
       <section className="py-16 lg:py-20 bg-secondary/30">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Export Formats &amp; Container Payload
+              Flexible Bale Formats
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Ocean freight is charged by the container, not by the tonne inside it. How
-              much product a 40 ft high-cube actually carries is therefore set by bale
-              density, and it decides the freight share of your delivered cost per tonne.
-              Bale format is a commercial decision, not a packing detail.
+              The same graded material can be pressed into different formats depending on
+              the product, how you handle it at the receiving end, and how the shipment
+              needs to load. Format is worth deciding early: ocean freight is charged by
+              the container rather than by the tonne inside it, so bale density is what
+              determines the freight share of your delivered cost.
             </p>
           </div>
 
-          <div className="bg-card rounded-xl border border-border overflow-x-auto">
-            <table className="w-full min-w-[34rem]">
-              <thead>
-                <tr className="border-b border-border bg-muted/30">
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Product</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Bale weight</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Payload per 40 ft HC</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Loading</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border">
-                {exportableProducts.map((product) => (
-                  <tr key={product.id}>
-                    <td className="px-6 py-4 text-sm">
-                      <Link
-                        href={`/products/${product.slug}`}
-                        className="text-primary hover:underline font-medium"
-                      >
-                        {product.name}
-                      </Link>
-                    </td>
-                    <td className="px-6 py-4 text-sm text-muted-foreground">
-                      {product.containerInfo.baleWeight}
-                    </td>
-                    <td className="px-6 py-4 text-sm text-muted-foreground">
-                      {product.containerInfo.approximateNetWeight}
-                    </td>
-                    <td className="px-6 py-4 text-sm text-muted-foreground">
-                      {product.containerInfo.loadingMethod}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+            <div className="space-y-5">
+              <div className="bg-card rounded-xl border border-border p-6">
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  Small bales &mdash; approx. 20&ndash;30 kg
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Our high-density small-bale configuration, and the format most often
+                  requested for export. A one-person lift at the far end, and the highest
+                  payload we load &mdash; approximately 24&ndash;26 tonnes into a 40 ft
+                  high-cube, depending on product and bale configuration.
+                </p>
+              </div>
+
+              <div className="bg-card rounded-xl border border-border p-6">
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  Large bales &mdash; double-pressed, 600 kg and above
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Fewer units to move, suited to operations with mechanical handling and
+                  covered storage. Single-press large bales are also available on request
+                  where a lighter format is preferred.
+                </p>
+              </div>
+
+              <div className="bg-card rounded-xl border border-border overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-border bg-muted/30">
+                      <th className="px-6 py-3 text-left text-sm font-semibold text-foreground">Format</th>
+                      <th className="px-6 py-3 text-left text-sm font-semibold text-foreground">Handling</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    <tr>
+                      <td className="px-6 py-4 text-sm font-medium text-foreground">Small bales</td>
+                      <td className="px-6 py-4 text-sm text-muted-foreground">
+                        Manual and forklift handleable<sup className="text-primary">*</sup>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4 text-sm font-medium text-foreground">Large bales</td>
+                      <td className="px-6 py-4 text-sm text-muted-foreground">Forklift handling</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="space-y-5">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-border">
+                <Image
+                  src="/hero-1.webp"
+                  alt="Baled Rhodes Grass hay strapped into export bundles for container loading at Port Qasim"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+
+              <div className="bg-card rounded-xl border border-border p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <Boxes className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground">
+                    <sup className="text-primary">*</sup> The bundled small bale
+                  </h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                  Small bales do not have to be handled one at a time. We can strap them
+                  into bundles &mdash; typically ten bales to a bundle, so a bundle of
+                  30 kg bales makes up roughly 300 kg &mdash; which is then moved by
+                  forklift like any large bale.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                  Cut the strapping and the bundle separates back into ten individual
+                  bales. You get mechanical handling through the port and the container,
+                  and a one-person bale at the feed face, without choosing between them.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Speak with your PBC supply representative for format selection and
+                  shipment-specific configuration.
+                </p>
+              </div>
+            </div>
           </div>
-          <p className="text-sm text-muted-foreground mt-4">
-            Figures are indicative and vary with bale format and material density. Confirmed
-            loading figures are issued with your quotation.
+
+          <p className="text-sm text-muted-foreground mt-6 max-w-3xl leading-relaxed">
+            Figures are indicative and vary with product, bale format and material density.
+            Per-product specifications are on each{" "}
+            <Link href="/products" className="text-primary hover:underline font-medium">
+              product page
+            </Link>
+            , and confirmed loading figures are issued with your quotation.
           </p>
         </div>
       </section>
