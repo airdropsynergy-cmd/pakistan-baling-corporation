@@ -87,26 +87,29 @@ const exportSteps = [
 
 // Market cards describe how PBC serves each destination, not the destination
 // itself. Ports are where we can quote shipments to — the buyer nominates.
+// The named markets and clusters are the Layer-3 geographic signals from the
+// territory research: commercial institutions with documented feed/livestock
+// trade, mentioned once each in supplier voice. Do not grow these into lists.
 const markets = [
   {
     country: "United Arab Emirates",
     ports: "Jebel Ali · Fujairah · other UAE ports by arrangement",
     proposition:
-      "UAE-bound orders are quoted to your nominated port — Jebel Ali for most consignments, with Fujairah and other UAE ports considered where the shipment calls for it. Bale format and container configuration are matched to how the order is received and moved on at your end.",
+      "UAE-bound orders are quoted to your nominated port — Jebel Ali for most consignments, with Fujairah and other UAE ports considered where the shipment calls for it. We serve feed buyers and traders across the Abu Dhabi Fodder Market network, the Al Qusais livestock market in Dubai and the farm belt around Al Ain, with bale format matched to how the order is received and moved on.",
     demand: "Dairy, livestock, equestrian and camel feed; industrial biomass",
   },
   {
     country: "Saudi Arabia",
     ports: "Dammam (east coast) · Jeddah (west coast)",
     proposition:
-      "Saudi orders are quoted to Dammam or Jeddah depending on where your operation sits. The nomination changes freight and transit time, so we settle it with you at enquiry stage rather than after the order is placed.",
+      "Saudi orders are quoted to Dammam or Jeddah depending on where your operation sits — Dammam serving the dairy and livestock clusters of Riyadh, Al Kharj and Qassim, Jeddah serving the west. The nomination changes freight and transit time, so we settle it with you at enquiry stage rather than after the order is placed.",
     demand: "Large-scale dairy and livestock operations",
   },
   {
     country: "Oman",
     ports: "Sohar · Salalah",
     proposition:
-      "Oman is supplied direct from Karachi to Sohar or Salalah — nominate whichever serves your operation and we quote against it. Samples and trial lots can be arranged before a first order.",
+      "Oman is supplied direct from Karachi — Sohar serving Muscat and the north, Salalah serving Dhofar, home to much of Oman's feed industry, with livestock traded through markets such as Nizwa. Nominate the port that serves your operation and we quote against it; samples and trial lots can be arranged before a first order.",
     demand: "Livestock and dairy feed",
   },
 ]
