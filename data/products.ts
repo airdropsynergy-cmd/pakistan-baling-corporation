@@ -78,8 +78,13 @@ export const products: Product[] = [
       "/images/products/rhode-grass/hero-2.webp",
       "/images/products/rhode-grass/hero-3.webp"
     ],
-    shortDescription: "Premium quality Rhodes Grass hay, ideal for livestock feed with high nutritional value.",
-    fullDescription: "Our Rhodes Grass (Chloris gayana), also commonly written as Rhode Grass, is cultivated under optimal conditions to ensure maximum nutritional content. This versatile grass is widely recognized for its excellent palatability and digestibility, making it a preferred choice for dairy and livestock farmers. Harvested at peak maturity and carefully processed to maintain its nutritional integrity, our Rhodes Grass bales provide consistent quality for animal feed applications.",
+    shortDescription: "A-grade Rhodes Grass hay grown in Sindh, Pakistan — leaf-rich forage, graded before pressing and baled at our Port Qasim facility for dairy, livestock, horse and camel feed.",
+    // Narrative ported from the Rhodes Grass Product Profile (v4): the A-grade
+    // process story — cut stage, conditioning, grading, platform baling, lab
+    // testing. Specific figures (protein, moisture, density) are deliberately
+    // not stated here while the profile and the Key Facts table disagree; the
+    // table carries the numbers until the spec sheet is signed off.
+    fullDescription: "Our Rhodes Grass (Chloris gayana), also commonly written as Rhode Grass, is a leaf-rich A-grade hay grown on farm catchments across Sindh, Pakistan. What separates an A-grade bale from a commodity bale is decided before the press: the crop is cut at early maturity, before the seed head sets, while the leaf fraction — which carries the protein and digestible energy — is still high; it is sun-cured and then conditioned in stockpile so moisture is brought to a standard rather than accepted as it arrives; and it is graded before it reaches the press. Bales are pressed on a platform at our own Port Qasim facility rather than in the field, which keeps soil and stones out of the bale. Every batch is tested in our in-house laboratory and shipped against a written specification with a certificate of analysis, and samples and trial lots can be arranged before a first order.",
     metaDescription: "Rhodes Grass hay supplier and exporter in Pakistan. Baled Chloris gayana for dairy, livestock, horse and camel feed — 20-30 KG, 300 KG and 600 KG bales, 40ft container loads. Request a quote.",
     specifications: {
       baleDensity: "180-220 kg/m³",
@@ -103,7 +108,7 @@ export const products: Product[] = [
       digestibility: "55-60%",
       nutritionalProfile: "Rich in fiber, moderate protein"
     },
-    applications: ["Dairy Cattle Feed", "Livestock Feed", "Horse Feed", "Sheep & Goat Feed"],
+    applications: ["Dairy Cattle Feed", "Livestock Feed", "Horse Feed", "Sheep & Goat Feed", "Camel Feed"],
     documents: {
       testingReport: "#",
       productProfile: "#",
