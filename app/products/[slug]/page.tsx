@@ -137,17 +137,24 @@ export default async function ProductDetailPage({
       label: "Crude Protein", 
       value: product.technicalProperties.crudeProtein || "N/A" 
     },
-    { 
-      label: "Gross Calorific Value (GCV)", 
-      value: product.technicalProperties.grossCalorificValue || "N/A" 
+    // Fuel products show GCV; feed products show Crude Fiber instead of a
+    // GCV "N/A" row.
+    ...(product.technicalProperties.grossCalorificValue
+      ? [{ label: "Gross Calorific Value (GCV)", value: product.technicalProperties.grossCalorificValue }]
+      : product.technicalProperties.crudeFiber
+      ? [{ label: "Crude Fiber", value: product.technicalProperties.crudeFiber }]
+      : []),
+    {
+      label: "Ash Content",
+      value: product.technicalProperties.ashContent || "N/A"
     },
-    { 
-      label: "Ash Content", 
-      value: product.technicalProperties.ashContent || "N/A" 
-    },
+    // NDF where set (e.g. bagasse), LHV where a value exists; no "N/A" row
+    // when a product has neither.
     ...(product.technicalProperties.ndf
       ? [{ label: "NDF", value: product.technicalProperties.ndf }]
-      : [{ label: "Lower Heating Value (LHV)", value: product.technicalProperties.lhv || "N/A" }]),
+      : product.technicalProperties.lhv
+      ? [{ label: "Lower Heating Value (LHV)", value: product.technicalProperties.lhv }]
+      : []),
   ]
 
   const productUrl = absoluteUrl(`/products/${product.slug}`)
