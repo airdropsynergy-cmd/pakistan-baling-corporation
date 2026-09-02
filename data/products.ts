@@ -157,7 +157,7 @@ export const products: Product[] = [
       moisture: "<12%",
       ndf: "> 55%"
     },
-    applications: ["Biomass Power Plants", "Paper & Pulp Industry", "Cogeneration Plants", "Particle Board Manufacturing"],
+    applications: ["Biomass Power Plants", "Paper & Pulp Industry", "Cogeneration Plants", "Particle Board Manufacturing", "Activated Carbon Manufacturing"],
     documents: {
       testingReport: "#",
       productProfile: "#",

@@ -42,6 +42,7 @@ const applicationIcons: Record<string, typeof Leaf> = {
   "Paper & Pulp Industry": Factory,
   "Cogeneration Plants": Flame,
   "Particle Board Manufacturing": Factory,
+  "Activated Carbon Manufacturing": Factory,
 }
 
 // Every product URL is prerendered, including products that are currently
