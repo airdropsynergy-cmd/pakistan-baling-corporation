@@ -98,7 +98,10 @@ export const products: Product[] = [
       baleWeight: "Flexible sizes available (20-30 KG), (300 KG), and (600 KG)",
       balesPerContainer: "850-900 bales",
       containerType: "40ft High Cube",
-      approximateNetWeight: "Single Press, Double Press, and High Density Bales all available",
+      // Per the product profile packaging table (small high-density bale).
+      // Previously held a bale-type string, which rendered as a nonsense
+      // container-load value.
+      approximateNetWeight: "24-26 MT (small high-density bale)",
       loadingMethod: "Manual stacking / Forklift"
     },
     technicalProperties: {

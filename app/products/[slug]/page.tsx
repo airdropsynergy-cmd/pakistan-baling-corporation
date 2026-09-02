@@ -118,26 +118,16 @@ export default async function ProductDetailPage({
     .filter((p) => p.id !== product.id && p.available)
     .slice(0, 4)
 
-  // Build Key Facts with standardized 9 fields in exact order
-  // 1. Bale Weight, 2. Full Container Load (40 FT), 3. Packaging Form, 4. Origin, 
-  // 5. Moisture Content, 6. Crude Protein, 7. Gross Calorific Value (GCV), 8. Ash Content,
-  // 9. Lower Heating Value (LHV) — or NDF instead when technicalProperties.ndf is set (e.g. Sugarcane Bagasse)
+  // Build Key Facts with standardized fields in exact order:
+  // 1. Origin, 2. Moisture Content, 3. Crude Protein, 4. Gross Calorific Value
+  // (GCV), 5. Ash Content, 6. Lower Heating Value (LHV) — or NDF instead when
+  // technicalProperties.ndf is set (e.g. Sugarcane Bagasse).
+  // Bale weight, container load and packaging moved to the dedicated
+  // "Bale Formats & Container Loading" section above this table.
   const keyFacts: { label: string; value: string }[] = [
-    { 
-      label: "Bale Weight", 
-      value: product.specifications.baleWeight || product.containerInfo.baleWeight || "N/A" 
-    },
-    { 
-      label: "Full Container Load (40 FT)", 
-      value: product.containerInfo.approximateNetWeight || "N/A" 
-    },
-    { 
-      label: "Packaging Form", 
-      value: product.specifications.packaging || "N/A" 
-    },
-    { 
-      label: "Origin", 
-      value: product.specifications.origin || "N/A" 
+    {
+      label: "Origin",
+      value: product.specifications.origin || "N/A"
     },
     { 
       label: "Moisture Content", 
@@ -304,8 +294,96 @@ export default async function ProductDetailPage({
         </div>
       </section>
 
-      {/* 7. Key Facts (combined Product Specs, Container Info, Technical Properties) */}
+      {/* 7. Bale Formats & Container Loading — replaces the former bale weight,
+          container load and packaging rows of Key Facts. The format table is
+          sitewide capability; the load figure is this product's own data. */}
       <section className="py-16 lg:py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-3xl mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+              Bale Formats &amp; Container Loading
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Ocean freight is charged per container, not per tonne inside it — so the
+              bale format you choose sets the freight share of your delivered cost. The
+              same graded material can be pressed to the configuration that suits how you
+              handle, store and ship it.
+            </p>
+          </div>
+
+          <div className="bg-card rounded-xl border border-border overflow-x-auto">
+            <table className="w-full min-w-[34rem]">
+              <thead>
+                <tr className="border-b border-border bg-muted/30">
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Bale format</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Typical size</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Handling</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                <tr>
+                  <td className="px-6 py-4 text-sm font-medium text-foreground">Small bale</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">High-density, PBC special packaging</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">
+                    Manual &amp; machine handling
+                    <sup className="text-primary font-semibold ml-0.5">*</sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm font-medium text-foreground">Large bale</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Double-pressed</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Machine handling</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm font-medium text-foreground">Single-press bale</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Available on request</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Machine handling</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          {/* Product-specific loading facts, from this product's own data */}
+          <div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 p-6 max-w-3xl">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <Package className="w-5 h-5 text-primary" />
+              </div>
+              <div className="space-y-1.5">
+                <h3 className="text-base font-semibold text-foreground">
+                  {product.name} loading &amp; packaging
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Bale weight: {product.specifications.baleWeight || product.containerInfo.baleWeight}.
+                  Loads approximately {product.containerInfo.approximateNetWeight} into a{" "}
+                  {product.containerInfo.containerType} container ({product.containerInfo.loadingMethod}).
+                  Packaging: {product.specifications.packaging}.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-5 max-w-3xl space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              <sup className="text-primary font-semibold">*</sup> Small bales can be packed
+              into strapped bundles of approximately 300 kg — machine-handled through the
+              port and into the container; cutting the strapping releases the individual
+              bales for manual handling at the receiving end.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Loads are indicative and vary with format and material density — confirmed
+              figures are issued with your quotation. See{" "}
+              <Link href="/export" className="text-primary hover:underline font-medium">
+                Export &amp; Shipping
+              </Link>{" "}
+              for the full container-loading and export process.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Key Facts (product specifications) */}
+      <section className="py-16 lg:py-20 bg-secondary/30">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
             Key Facts
@@ -355,8 +433,8 @@ export default async function ProductDetailPage({
         </div>
       </section>
 
-      {/* 8. Product Uses / Applications */}
-      <section className="py-16 lg:py-20 bg-secondary/30">
+      {/* 9. Product Uses / Applications */}
+      <section className="py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
             Product Uses / Applications
@@ -380,8 +458,8 @@ export default async function ProductDetailPage({
         </div>
       </section>
 
-      {/* 9. Download Documents */}
-      <section className="py-16 lg:py-20 bg-background">
+      {/* 10. Download Documents */}
+      <section className="py-16 lg:py-20 bg-secondary/30">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
             Download Documents
@@ -447,8 +525,8 @@ export default async function ProductDetailPage({
         </div>
       </section>
 
-      {/* 10. Related Products */}
-      <section className="py-16 lg:py-20 bg-secondary/30">
+      {/* 11. Related Products */}
+      <section className="py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
             Related Products
