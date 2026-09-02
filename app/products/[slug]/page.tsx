@@ -338,7 +338,12 @@ export default async function ProductDetailPage({
             Product Description
           </h2>
           <div className="prose prose-lg max-w-none text-muted-foreground">
-            <p className="leading-relaxed">{product.fullDescription}</p>
+            {/* Descriptions may contain multiple paragraphs separated by \n\n */}
+            {product.fullDescription.split("\n\n").map((paragraph, index) => (
+              <p key={index} className="leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
           </div>
         </div>
       </section>
