@@ -337,7 +337,10 @@ export default async function ProductDetailPage({
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
             Product Description
           </h2>
-          <div className="prose prose-lg max-w-none text-muted-foreground">
+          {/* Note: the prose classes previously here were inert — the
+              @tailwindcss/typography plugin is not installed — so paragraph
+              spacing is set explicitly with space-y. */}
+          <div className="max-w-4xl text-muted-foreground space-y-5">
             {/* Descriptions may contain multiple paragraphs separated by \n\n */}
             {product.fullDescription.split("\n\n").map((paragraph, index) => (
               <p key={index} className="leading-relaxed">
