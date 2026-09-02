@@ -78,7 +78,7 @@ export const products: Product[] = [
       "/images/products/rhode-grass/hero-2.webp",
       "/images/products/rhode-grass/hero-3.webp"
     ],
-    shortDescription: "A-grade Rhodes Grass hay grown in Sindh, Pakistan — leaf-rich forage, graded before pressing and baled at our Port Qasim facility for dairy, livestock, horse and camel feed.",
+    shortDescription: "A-grade Rhodes Grass hay exclusively grown for Middle Eastern livestock — leaf-rich forage, graded before pressing and baled expertly for the export sector. Our special bale and container loading capacity helps keep your landed costs low without compromising on quality.",
     // Owner-supplied narrative (Sep 2026), lightly copyedited for typos only.
     // Paragraphs are separated with \n\n and rendered as separate <p> blocks
     // by the product template. Specific figures (protein, moisture, density)
