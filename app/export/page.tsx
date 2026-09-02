@@ -13,26 +13,22 @@ import {
   Flame,
   Anchor,
   ArrowRight,
-  Layers,
-  Gauge,
-  BadgeCheck,
-  Boxes,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { products } from "@/data/products"
 import { absoluteUrl } from "@/lib/site"
 
 export const metadata: Metadata = {
-  title: "Agricultural & Biomass Export from Pakistan",
+  title: "Agricultural Feed & Biomass Exporter in Pakistan",
   description:
-    "Pakistan Baling Corporation exports baled Rhodes Grass hay and sugarcane bagasse from Port Qasim, Karachi to feed and industrial buyers in the UAE, Saudi Arabia and Oman — flexible bale formats, container loading, export documentation and enquiry.",
+    "Pakistan Baling Corporation — exporter of baled Rhodes Grass hay and sugarcane bagasse from Port Qasim, Karachi. Flexible bale formats, container loads up to 24–26 tonnes, shipments quoted to UAE, Saudi Arabia and Oman ports.",
   alternates: {
     canonical: "/export",
   },
   openGraph: {
-    title: "Agricultural & Biomass Export from Pakistan | Pakistan Baling Corporation",
+    title: "Agricultural Feed & Biomass Exporter in Pakistan | Pakistan Baling Corporation",
     description:
-      "Baled Rhodes Grass hay and sugarcane bagasse shipped from Port Qasim to buyers in the UAE, Saudi Arabia and Oman.",
+      "Baled Rhodes Grass hay and sugarcane bagasse, shipped from Port Qasim to buyer-nominated ports in the UAE, Saudi Arabia and Oman.",
     url: absoluteUrl("/export"),
     type: "website",
     images: [
@@ -46,51 +42,15 @@ export const metadata: Metadata = {
   },
 }
 
-// Only products currently offered are presented as export capability. Products
-// held out of supply keep their own page but are not listed here as exportable.
+// Only products currently offered are presented as export capability.
 const exportableProducts = products.filter((p) => p.available)
-
 const leadProducts = ["rhodes-grass", "sugarcane-bagasse"]
 
-// Supply advantages that matter specifically to an export buyer. Each reflects
-// capability documented in the product and company profiles — grading before
-// pressing, flexible press configuration, high-density pressing, and the
-// bundle configuration. No new commercial claims.
-const exportAdvantages = [
-  {
-    title: "Graded before pressing",
-    description:
-      "Material is conditioned to a standard moisture and graded before it reaches the press, not baled as it comes off the field.",
-    icon: BadgeCheck,
-  },
-  {
-    title: "Flexible bale formats",
-    description:
-      "Small, double-pressed and single-press configurations from the same graded material, chosen around how you handle and ship it.",
-    icon: Layers,
-  },
-  {
-    title: "High-density pressing",
-    description:
-      "Pressed at our own facility to around 375 kg/m³ in the small-bale format, which is what puts payload into the container.",
-    icon: Gauge,
-  },
-  {
-    title: "Bundled for handling",
-    description:
-      "Small bales can be strapped into forklift-handleable bundles that separate back into individual bales at your end.",
-    icon: Boxes,
-  },
-]
-
-// Enquiry-to-shipment sequence. Each step reflects capability described in the
-// company and product profiles — sourcing, conditioning, baling, grading,
-// container loading and documentation. No new commercial claims are introduced.
 const exportSteps = [
   {
     title: "Enquiry & Product Selection",
     description:
-      "Tell us the product, target quantity, preferred bale format and destination. We confirm what we can supply and when.",
+      "Tell us the product, target quantity, preferred bale format and destination port. We confirm what we can supply and when.",
     icon: ClipboardList,
   },
   {
@@ -125,35 +85,66 @@ const exportSteps = [
   },
 ]
 
-// Destination markets. Port references describe where forage and biomass cargo
-// into each market is customarily discharged — they are routing context, not a
-// claim about specific sailings. Import permits are obtained by the importer;
-// what is listed under "we provide" is documentation PBC issues.
+// Market cards describe how PBC serves each destination, not the destination
+// itself. Ports are where we can quote shipments to — the buyer nominates.
 const markets = [
   {
     country: "United Arab Emirates",
-    route: "Port Qasim → Jebel Ali, Dubai",
-    context:
-      "Jebel Ali is the region's principal gateway for imported hay, and the UAE is as much a redistribution point as an end market — a significant share of cargo landed there moves on into the wider Gulf. Feed demand is concentrated around Dubai, Abu Dhabi and Al Ain, where domestic forage production is limited by climate and water.",
-    demand: "Dairy, livestock, equestrian and camel feed",
-    note: "Short sea leg from Karachi relative to competing origins.",
+    ports: "Jebel Ali · Fujairah · other UAE ports by arrangement",
+    proposition:
+      "UAE-bound orders are quoted to your nominated port — Jebel Ali for most consignments, with Fujairah and other UAE ports considered where the shipment calls for it. Bale format and container configuration are matched to how the order is received and moved on at your end.",
+    demand: "Dairy, livestock, equestrian and camel feed; industrial biomass",
   },
   {
     country: "Saudi Arabia",
-    route: "Port Qasim → Dammam or Jeddah",
-    context:
-      "The largest forage import market in the region, and the one where routing genuinely matters: Dammam serves the Eastern Province from the Arabian Gulf, Jeddah the west from the Red Sea. Which port a buyer nominates changes both freight and transit, so it is worth settling at enquiry stage rather than afterwards.",
+    ports: "Dammam (east coast) · Jeddah (west coast)",
+    proposition:
+      "Saudi orders are quoted to Dammam or Jeddah depending on where your operation sits. The nomination changes freight and transit time, so we settle it with you at enquiry stage rather than after the order is placed.",
     demand: "Large-scale dairy and livestock operations",
-    note: "Fodder from outside the GCC requires an import approval held by the importer.",
   },
   {
     country: "Oman",
-    route: "Port Qasim → Sohar or Salalah",
-    context:
-      "Supplied both directly and through Gulf regional distribution. Sohar serves the populated north around Muscat and the Batinah coast; Salalah sits roughly a thousand kilometres south, so the receiving operation's location — not the shipping line — usually decides the discharge port.",
+    ports: "Sohar · Salalah",
+    proposition:
+      "Oman is supplied direct from Karachi to Sohar or Salalah — nominate whichever serves your operation and we quote against it. Samples and trial lots can be arranged before a first order.",
     demand: "Livestock and dairy feed",
-    note: "Feed imports are permitted through Oman's agriculture and fisheries ministry.",
   },
+]
+
+// Container payloads per format. Figures are from the product profile; the
+// double-press figure is the one consistent with its own bale-count arithmetic
+// (28-29 bales x 675-725 kg). Small-bale figure applies to the high-density
+// forage configuration; actual loads vary by product.
+const formats = [
+  {
+    format: "Small bale",
+    size: "Approx. 20–30 kg, high-density",
+    handling: "Manual & machine handling",
+    footnote: true,
+    load: "Approx. 24–26 t",
+  },
+  {
+    format: "Large bale",
+    size: "Double-pressed, 600 kg and above",
+    handling: "Machine handling",
+    footnote: false,
+    load: "Approx. 19–21 t",
+  },
+  {
+    format: "Single-press bale",
+    size: "Approx. 300 kg, on request",
+    handling: "Machine handling",
+    footnote: false,
+    load: "Approx. 10–12 t",
+  },
+]
+
+const glance = [
+  { label: "Origin", value: "Sindh, Pakistan — shipped from Port Qasim, Karachi" },
+  { label: "Processing capacity", value: "50,000 MT per year" },
+  { label: "Container", value: "40 ft high-cube, loaded at our own facility" },
+  { label: "Quality", value: "In-house laboratory, COA per batch" },
+  { label: "Markets", value: "UAE · Saudi Arabia · Oman" },
 ]
 
 export default function ExportPage() {
@@ -206,7 +197,7 @@ export default function ExportPage() {
         <div className="absolute inset-0 bg-foreground/70" />
         <div className="relative z-10 text-center text-background px-4 max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-balance">
-            Agricultural &amp; Biomass Export from Pakistan
+            Agricultural Feed &amp; Biomass Exporter in Pakistan
           </h1>
           <p className="text-lg md:text-xl text-background/80">
             Baled forage and biomass, pressed and containerised at Port Qasim for buyers
@@ -215,81 +206,36 @@ export default function ExportPage() {
         </div>
       </section>
 
-      {/* Who is exporting */}
-      <section className="py-16 lg:py-20 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
-            <div className="lg:col-span-2">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Supply Prepared for the Container
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-8 max-w-2xl">
-                Forage and crop residue in Pakistan are abundant and competitively priced
-                at source. The conventional chain gives much of that advantage away —
-                field-baled, under-dried, and shipped at densities that leave part of the
-                container&apos;s payload unused. We prepare material for export instead of
-                simply trading it, and that is what an international buyer is actually
-                buying from us.
-              </p>
-
-              <div className="grid sm:grid-cols-2 gap-5">
-                {exportAdvantages.map((item) => (
-                  <div key={item.title} className="flex gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                      <item.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+      {/* Export at a glance — stat strip */}
+      <section className="bg-background border-b border-border">
+        <div className="container mx-auto px-4 lg:px-8 py-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-6">
+            {glance.map((item) => (
+              <div key={item.label}>
+                <span className="block text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">
+                  {item.label}
+                </span>
+                <span className="text-sm font-medium text-foreground leading-snug">
+                  {item.value}
+                </span>
               </div>
-            </div>
-
-            <div className="bg-card rounded-xl border border-border p-6 space-y-5 h-fit">
-              <h3 className="text-base font-semibold text-foreground">Export at a glance</h3>
-              <dl className="space-y-4 text-sm">
-                <div>
-                  <dt className="text-muted-foreground">Origin</dt>
-                  <dd className="font-medium text-foreground">Sindh, Pakistan · shipped from Port Qasim, Karachi</dd>
-                </div>
-                <div>
-                  <dt className="text-muted-foreground">Processing capacity</dt>
-                  <dd className="font-medium text-foreground">50,000 MT per year</dd>
-                </div>
-                <div>
-                  <dt className="text-muted-foreground">Container</dt>
-                  <dd className="font-medium text-foreground">40 ft high-cube, loaded at our own facility</dd>
-                </div>
-                <div>
-                  <dt className="text-muted-foreground">Quality</dt>
-                  <dd className="font-medium text-foreground">In-house laboratory, certificate of analysis per batch</dd>
-                </div>
-                <div>
-                  <dt className="text-muted-foreground">Markets</dt>
-                  <dd className="font-medium text-foreground">United Arab Emirates · Saudi Arabia · Oman</dd>
-                </div>
-              </dl>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* What we export */}
-      <section className="py-16 lg:py-20 bg-secondary/30">
+      <section className="py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               What We Export
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Our export volume runs on two distinct streams serving two different kinds of
-              buyer: baled forage for feed and livestock operations, and baled biomass for
-              industrial and energy users. Both are pressed and containerised the same way;
-              what changes is who buys them and why.
+              Two export lines serving two kinds of buyer: baled Rhodes Grass hay for feed
+              and livestock operations, and baled sugarcane bagasse for industrial and
+              energy users. Both are pressed, tested and containerised at our own facility
+              and sold against a written specification.
             </p>
           </div>
 
@@ -306,31 +252,30 @@ export default function ExportPage() {
                 />
               </div>
               <div className="p-6 flex flex-col flex-1">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                  <Leaf className="w-5 h-5 text-primary" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <Leaf className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-medium text-primary uppercase tracking-wider">
+                      Animal Feed
+                    </span>
+                    <h3 className="text-lg font-semibold text-foreground">Rhodes Grass Hay</h3>
+                  </div>
                 </div>
-                <div>
-                  <span className="text-xs font-medium text-primary uppercase tracking-wider">
-                    Animal Feed
-                  </span>
-                  <h3 className="text-lg font-semibold text-foreground">Rhodes Grass Hay</h3>
-                </div>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                Leaf-rich <em>Chloris gayana</em> cut at early maturity, conditioned to a
-                standard moisture and graded before pressing. Supplied in small
-                high-density bales and larger pressed formats, chosen according to how the
-                forage is handled at the receiving end. This is our principal forage export
-                to Gulf feed buyers.
-              </p>
-              <Link
-                href="/products/rhodes-grass"
-                className="text-primary font-medium text-sm inline-flex items-center hover:underline"
-              >
-                Rhodes Grass specifications
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </Link>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
+                  Our principal forage export. Leaf-rich hay graded before pressing and
+                  held as ready stock at Port Qasim, supplied in small high-density bales
+                  or large pressed formats to dairy, livestock, equestrian and camel feed
+                  buyers across the Gulf.
+                </p>
+                <Link
+                  href="/products/rhodes-grass"
+                  className="text-primary font-medium text-sm inline-flex items-center hover:underline"
+                >
+                  Rhodes Grass specifications
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
               </div>
             </div>
 
@@ -338,7 +283,7 @@ export default function ExportPage() {
             <div className="bg-card rounded-xl border border-border overflow-hidden flex flex-col">
               <div className="relative aspect-[16/9]">
                 <Image
-                  src="/hero-1.webp"
+                  src="/images/products/bagasse/hero-1.webp"
                   alt="Baled sugarcane bagasse biomass fuel prepared for export from Pakistan"
                   fill
                   className="object-cover"
@@ -346,30 +291,30 @@ export default function ExportPage() {
                 />
               </div>
               <div className="p-6 flex flex-col flex-1">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                  <Flame className="w-5 h-5 text-primary" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <Flame className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-medium text-primary uppercase tracking-wider">
+                      Biomass Fuel
+                    </span>
+                    <h3 className="text-lg font-semibold text-foreground">Sugarcane Bagasse</h3>
+                  </div>
                 </div>
-                <div>
-                  <span className="text-xs font-medium text-primary uppercase tracking-wider">
-                    Biomass Fuel
-                  </span>
-                  <h3 className="text-lg font-semibold text-foreground">Sugarcane Bagasse</h3>
-                </div>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                The fibrous residue left after sugarcane is crushed, taken directly from
-                mills and baled as a renewable fuel. Gross calorific value of 4,000&ndash;4,400
-                kcal/kg on a dry basis with ash at 2&ndash;4%, supplied to power plants,
-                cogeneration facilities, industrial boilers and paper mills.
-              </p>
-              <Link
-                href="/products/sugarcane-bagasse"
-                className="text-primary font-medium text-sm inline-flex items-center hover:underline"
-              >
-                Sugarcane Bagasse specifications
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </Link>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
+                  Baled biomass fuel taken directly from sugar mills, supplied in ready
+                  stock to power plants, cogeneration facilities, industrial boilers and
+                  paper mills. Baled and loaded for container shipment on the same basis
+                  as our forage lines.
+                </p>
+                <Link
+                  href="/products/sugarcane-bagasse"
+                  className="text-primary font-medium text-sm inline-flex items-center hover:underline"
+                >
+                  Sugarcane Bagasse specifications
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
               </div>
             </div>
           </div>
@@ -400,18 +345,16 @@ export default function ExportPage() {
       </section>
 
       {/* Markets */}
-      <section className="py-16 lg:py-20 bg-background">
+      <section className="py-16 lg:py-20 bg-secondary/30">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               Markets We Supply
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              We ship out of Port Qasim, Karachi, into the Gulf — a short sea leg compared
-              with the North American, Australian and Southern African origins that supply
-              the same buyers. Baled forage is our principal export line into these markets;
-              sugarcane bagasse and agricultural residues are supplied to industrial and
-              energy users and quoted on the same basis.
+              We ship from Port Qasim, Karachi — a short sea leg into the Gulf compared
+              with the North American, Australian and Southern African origins supplying
+              the same buyers. Every shipment is quoted to the port you nominate.
             </p>
           </div>
 
@@ -423,105 +366,107 @@ export default function ExportPage() {
                   <Anchor className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                   <div>
                     <span className="block text-xs text-muted-foreground uppercase tracking-wider mb-0.5">
-                      Shipping route
+                      Ports we quote to
                     </span>
-                    <span className="text-sm font-medium text-foreground">{m.route}</span>
+                    <span className="text-sm font-medium text-foreground">{m.ports}</span>
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                  {m.context}
+                  {m.proposition}
                 </p>
-                <div className="space-y-3">
-                  <div>
-                    <span className="block text-xs text-muted-foreground uppercase tracking-wider mb-1">
-                      Primary demand
-                    </span>
-                    <span className="text-sm text-foreground">{m.demand}</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed pt-3 border-t border-border">
-                    {m.note}
-                  </p>
+                <div>
+                  <span className="block text-xs text-muted-foreground uppercase tracking-wider mb-1">
+                    Primary demand
+                  </span>
+                  <span className="text-sm text-foreground">{m.demand}</span>
                 </div>
               </div>
             ))}
           </div>
 
           <p className="text-sm text-muted-foreground mt-6 max-w-3xl leading-relaxed">
-            Import permits and customs clearance are the importer&apos;s responsibility in each
-            of these markets. From our side we supply the origin documentation those
-            applications rely on — certificate of analysis, phytosanitary certificate and
-            certificate of origin — with fumigation and third-party inspection available on
-            request. If your buyer or authority requires a specific certificate or inspection
-            body, raise it before the order is placed.
+            Import permits and customs clearance sit with the importer in each market. From
+            our side, every shipment carries the origin documentation those applications
+            rely on — certificate of analysis, phytosanitary certificate and certificate of
+            origin — with fumigation and third-party inspection available on request. If
+            your authority requires a specific certificate or inspection body, raise it at
+            enquiry stage.
           </p>
         </div>
       </section>
 
-      {/* Formats & container payload */}
-      <section className="py-16 lg:py-20 bg-secondary/30">
+      {/* Formats & container loading */}
+      <section className="py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mb-10">
+          <div className="max-w-3xl mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Flexible Bale Formats
+              Bale Formats &amp; Container Loading
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              The same graded material can be pressed into different formats depending on
-              the product, how you handle it at the receiving end, and how the shipment
-              needs to load. Format is worth deciding early: ocean freight is charged by
-              the container rather than by the tonne inside it, so bale density is what
-              determines the freight share of your delivered cost.
+              Ocean freight is charged per container, not per tonne inside it — so the bale
+              format you choose sets the freight share of your delivered cost. The same
+              graded material can be pressed to different configurations, and the payload
+              difference between them is substantial.
             </p>
           </div>
 
           <div className="bg-card rounded-xl border border-border overflow-x-auto">
-            <table className="w-full min-w-[36rem]">
+            <table className="w-full min-w-[40rem]">
               <thead>
                 <tr className="border-b border-border bg-muted/30">
                   <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Bale format</th>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Typical size</th>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Handling</th>
+                  <th className="px-6 py-4 text-right text-sm font-semibold text-foreground">Approx. load / 40 ft HC</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
-                <tr>
-                  <td className="px-6 py-4 text-sm font-medium text-foreground">Small bale</td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">
-                    Approx. 20&ndash;30 kg, high-density
-                  </td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">
-                    Manual and forklift handleable
-                    <sup className="text-primary font-semibold ml-0.5">*</sup>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 text-sm font-medium text-foreground">Large bale</td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">
-                    Double-pressed, 600 kg and above
-                  </td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">Forklift handling</td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 text-sm font-medium text-foreground">Single-press bale</td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">Available on request</td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">Forklift handling</td>
-                </tr>
+                {formats.map((f) => (
+                  <tr key={f.format}>
+                    <td className="px-6 py-4 text-sm font-medium text-foreground">{f.format}</td>
+                    <td className="px-6 py-4 text-sm text-muted-foreground">{f.size}</td>
+                    <td className="px-6 py-4 text-sm text-muted-foreground">
+                      {f.handling}
+                      {f.footnote && (
+                        <sup className="text-primary font-semibold ml-0.5">*</sup>
+                      )}
+                    </td>
+                    <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">
+                      {f.load}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
 
-          <div className="mt-5 max-w-3xl space-y-3">
+          {/* Freight logic — arithmetic on documented payloads, no invented rates */}
+          <div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 p-6 max-w-3xl">
+            <h3 className="text-base font-semibold text-foreground mb-2">
+              Why the format decision matters
+            </h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The container costs the same to ship whether it carries 10 tonnes or 26.
+              Loaded with single-press bales, a 40 ft high-cube carries roughly 10&ndash;12
+              tonnes; in our small high-density configuration the same container carries
+              roughly 24&ndash;26. Whatever your freight rate, that cuts the freight
+              component of your delivered cost per tonne by around half. Where manual
+              handling at the destination is not required, the double-pressed large bale
+              sits between the two.
+            </p>
+          </div>
+
+          <div className="mt-6 max-w-3xl space-y-3">
             <p className="text-sm text-muted-foreground leading-relaxed">
               <sup className="text-primary font-semibold">*</sup> Small bales can be packed
               into PET or twine-strapped bundles of approximately 300 kg &mdash; for example
-              ten 30 kg bales to a bundle. The bundle is handled by forklift through the port
-              and into the container; cutting the strapping releases the individual bales for
-              manual handling at the receiving end. In the small-bale format this loads
-              roughly 24&ndash;26 tonnes into a 40 ft high-cube, depending on product and
-              configuration.
+              ten 30 kg bales to a bundle. The bundle is machine-handled through the port
+              and into the container; cutting the strapping releases the individual bales
+              for manual handling at the receiving end.
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Figures are indicative and vary with product, bale format and material density.
-              Per-product specifications are on each{" "}
+              Loads are indicative and vary by product and configuration. Per-product
+              specifications are on each{" "}
               <Link href="/products" className="text-primary hover:underline font-medium">
                 product page
               </Link>
@@ -533,7 +478,7 @@ export default function ExportPage() {
       </section>
 
       {/* Export process */}
-      <section className="py-16 lg:py-20 bg-background">
+      <section className="py-16 lg:py-20 bg-secondary/30">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
             How an Export Order Works
@@ -560,7 +505,7 @@ export default function ExportPage() {
       </section>
 
       {/* Documentation & enquiry */}
-      <section className="py-16 lg:py-20 bg-secondary/30">
+      <section className="py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             <div className="space-y-4">
@@ -576,11 +521,6 @@ export default function ExportPage() {
                 Quality testing reports and product profiles are issued against the
                 consignment being purchased rather than published in advance, so the
                 documentation a buyer receives matches the lot they are actually taking.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                If your market requires a specific certificate, inspection body or labelling
-                format, raise it at enquiry stage so we can confirm what we are able to
-                provide before you commit to an order.
               </p>
 
               {/*
