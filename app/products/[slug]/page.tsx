@@ -448,9 +448,15 @@ export default async function ProductDetailPage({
       {/* 8. Key Facts (product specifications) */}
       <section className="py-16 lg:py-20 bg-secondary/30">
         <div className="container mx-auto px-4 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
-            Key Facts
-          </h2>
+          <div className="max-w-3xl mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+              Key Facts
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Typical values, averaged across lots. Exact figures for each lot are
+              reported on its certificate of analysis (COA), which ships with every lot.
+            </p>
+          </div>
           <div className="bg-card rounded-xl border border-border overflow-hidden">
             <table className="w-full">
               <tbody className="divide-y divide-border">
