@@ -118,6 +118,10 @@ export default async function ProductDetailPage({
     .filter((p) => p.id !== product.id && p.available)
     .slice(0, 4)
 
+  // Only these products currently offer the large and single-press formats;
+  // everyone else shows the small-bale row alone.
+  const showFullBaleFormats = ["rhodes-grass", "rice-straw", "alfalfa"].includes(product.slug)
+
   // Build Key Facts with standardized fields in exact order:
   // 1. Origin, 2. Moisture Content, 3. Crude Protein, 4. Gross Calorific Value
   // (GCV), 5. Ash Content, 6. Lower Heating Value (LHV) — or NDF instead when
@@ -345,28 +349,32 @@ export default async function ProductDetailPage({
                     Manual &amp; machine handling
                   </td>
                 </tr>
-                <tr>
-                  <td className="px-6 py-4 text-sm font-medium text-foreground">Large bale</td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">
-                    {product.slug === "rhodes-grass" ? "Double-pressed, 650–750 kg" : "Double-pressed"}
-                  </td>
-                  <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">
-                    {product.slug === "rhodes-grass" ? "Approx. 18+ t (24–27 bales)" : "Approx. 19–21 t"}
-                  </td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">Machine handling</td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 text-sm font-medium text-foreground">Single-press bale</td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">
-                    {product.slug === "rhodes-grass"
-                      ? "Single-pressed, 350–450 kg, available on request"
-                      : "Available on request"}
-                  </td>
-                  <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">
-                    {product.slug === "rhodes-grass" ? "Approx. 10+ t (24–27 bales)" : "Approx. 10–12 t"}
-                  </td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">Machine handling</td>
-                </tr>
+                {showFullBaleFormats && (
+                  <>
+                    <tr>
+                      <td className="px-6 py-4 text-sm font-medium text-foreground">Large bale</td>
+                      <td className="px-6 py-4 text-sm text-muted-foreground">
+                        {product.slug === "rhodes-grass" ? "Double-pressed, 650–750 kg" : "Double-pressed"}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">
+                        {product.slug === "rhodes-grass" ? "Approx. 18+ t (24–27 bales)" : "Approx. 19–21 t"}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-muted-foreground">Machine handling</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4 text-sm font-medium text-foreground">Single-press bale</td>
+                      <td className="px-6 py-4 text-sm text-muted-foreground">
+                        {product.slug === "rhodes-grass"
+                          ? "Single-pressed, 350–450 kg, available on request"
+                          : "Available on request"}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">
+                        {product.slug === "rhodes-grass" ? "Approx. 10+ t (24–27 bales)" : "Approx. 10–12 t"}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-muted-foreground">Machine handling</td>
+                    </tr>
+                  </>
+                )}
               </tbody>
             </table>
           </div>
