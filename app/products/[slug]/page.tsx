@@ -122,6 +122,29 @@ export default async function ProductDetailPage({
   // everyone else shows the small-bale row alone.
   const showFullBaleFormats = ["rhodes-grass", "rice-straw", "alfalfa"].includes(product.slug)
 
+  // Terms block: shared across every product page. Only Minimum order and
+  // Shipment vary by product; everything else is fixed company policy.
+  const terms: { label: string; value: string }[] = [
+    {
+      label: "Minimum order",
+      value:
+        product.slug === "rhodes-grass"
+          ? "20 MT, one 40 ft HC container"
+          : "One full 40 ft HC container",
+    },
+    { label: "Payment", value: "Letter of credit (LC) or TT" },
+    { label: "Container", value: "40 ft High Cube (HC)" },
+    { label: "Port of loading", value: "Port Qasim, Karachi" },
+    { label: "Delivery basis", value: "FOB, CFR or CIF" },
+    {
+      label: "Shipment",
+      value:
+        product.status === "Ready Stock"
+          ? "Prompt, from ready stock"
+          : "Pre-booking, shipped in season",
+    },
+  ]
+
   // Build Key Facts with standardized fields in exact order:
   // 1. Origin, 2. Moisture Content, 3. Crude Protein, 4. Gross Calorific Value
   // (GCV), 5. Ash Content, 6. Lower Heating Value (LHV) — or NDF instead when
@@ -379,22 +402,28 @@ export default async function ProductDetailPage({
             </table>
           </div>
 
-          {/* Product-specific loading facts, from this product's own data */}
+          {/* Terms */}
           <div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 p-6 max-w-3xl">
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                 <Package className="w-5 h-5 text-primary" />
               </div>
-              <div className="space-y-1.5">
+              <div className="space-y-3 flex-1">
                 <h3 className="text-base font-semibold text-foreground">
-                  {product.name} loading &amp; packaging
+                  Terms
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Bale weight: {product.specifications.baleWeight || product.containerInfo.baleWeight}.
-                  Loads approximately {product.containerInfo.approximateNetWeight} into a{" "}
-                  {product.containerInfo.containerType} container ({product.containerInfo.loadingMethod}).
-                  Packaging: {product.specifications.packaging}.
-                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                  {terms.map((term) => (
+                    <div key={term.label}>
+                      <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                        {term.label}
+                      </p>
+                      <p className="text-sm font-medium text-foreground mt-0.5">
+                        {term.value}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

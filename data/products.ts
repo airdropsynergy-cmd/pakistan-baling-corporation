@@ -6,17 +6,7 @@ export interface ProductSpecifications {
   baleDensity?: string;
   moistureContent?: string;
   baleDimensions?: string;
-  baleWeight?: string;
-  packaging?: string;
   origin?: string;
-}
-
-export interface ContainerInfo {
-  baleWeight: string;
-  balesPerContainer: string;
-  containerType: string;
-  approximateNetWeight: string;
-  loadingMethod: string;
 }
 
 export interface TechnicalProperties {
@@ -51,7 +41,6 @@ export interface Product {
    */
   metaDescription: string;
   specifications: ProductSpecifications;
-  containerInfo: ContainerInfo;
   technicalProperties: TechnicalProperties;
   applications: string[];
   documents: {
@@ -91,19 +80,7 @@ export const products: Product[] = [
       baleDensity: "180-220 kg/m³",
       moistureContent: "< 12%",
       baleDimensions: "100 x 50 x 40 cm",
-      baleWeight: "Flexible sizes available (20-30 KG), (300 KG), and (600 KG)",
-      packaging: "Double-strapped compressed bales",
       origin: "Premium agricultural regions"
-    },
-    containerInfo: {
-      baleWeight: "Flexible sizes available (20-30 KG), (300 KG), and (600 KG)",
-      balesPerContainer: "850-900 bales",
-      containerType: "40 ft High Cube",
-      // Per the product profile packaging table (small high-density bale).
-      // Previously held a bale-type string, which rendered as a nonsense
-      // container-load value.
-      approximateNetWeight: "20+ MT of sleeved high-density small bales (540–550 bales)",
-      loadingMethod: "manual stacking / forklift"
     },
     technicalProperties: {
       crudeProtein: "8–10%",
@@ -144,16 +121,7 @@ export const products: Product[] = [
       baleDensity: "120-150 kg/m³",
       moistureContent: "<12%",
       baleDimensions: "Bulk or baled",
-      baleWeight: "30 KG Bale",
-      packaging: "Compressed bales or bulk",
       origin: "Sugar mills"
-    },
-    containerInfo: {
-      baleWeight: "30 KG Bale",
-      balesPerContainer: "55-60 bales",
-      containerType: "40ft High Cube",
-      approximateNetWeight: "25-27 MT",
-      loadingMethod: "Forklift loading"
     },
     technicalProperties: {
       grossCalorificValue: "4,000-4,400 kcal/kg (dry basis)",
@@ -191,16 +159,7 @@ export const products: Product[] = [
       baleDensity: "200-250 kg/m³",
       moistureContent: "10-13%",
       baleDimensions: "100 x 50 x 40 cm",
-      baleWeight: "28-35 kg",
-      packaging: "Double-strapped compressed bales",
       origin: "Premium agricultural regions"
-    },
-    containerInfo: {
-      baleWeight: "28-35 kg",
-      balesPerContainer: "750-800 bales",
-      containerType: "40ft High Cube",
-      approximateNetWeight: "24-26 MT",
-      loadingMethod: "Manual stacking / Forklift"
     },
     technicalProperties: {
       crudeProtein: "16-22%",
@@ -238,16 +197,7 @@ export const products: Product[] = [
       baleDensity: "700-800 kg/m³",
       moistureContent: "60-70%",
       baleDimensions: "Wrapped round bales",
-      baleWeight: "400-500 kg",
-      packaging: "UV-resistant stretch wrap",
       origin: "Premium agricultural regions"
-    },
-    containerInfo: {
-      baleWeight: "400-500 kg",
-      balesPerContainer: "44-48 bales",
-      containerType: "40ft High Cube",
-      approximateNetWeight: "20-22 MT",
-      loadingMethod: "Forklift loading"
     },
     technicalProperties: {
       crudeProtein: "10-14%",
@@ -285,16 +235,7 @@ export const products: Product[] = [
       baleDensity: "100-130 kg/m³",
       moistureContent: "8-12%",
       baleDimensions: "Bulk or bagged",
-      baleWeight: "25-30 kg bags",
-      packaging: "PP bags or bulk",
       origin: "Rice processing facilities"
-    },
-    containerInfo: {
-      baleWeight: "25-30 kg",
-      balesPerContainer: "800-850 bags",
-      containerType: "40ft High Cube",
-      approximateNetWeight: "22-24 MT",
-      loadingMethod: "Bulk loading / Bagged"
     },
     technicalProperties: {
       grossCalorificValue: "3,300-3,600 kcal/kg",
@@ -332,16 +273,7 @@ export const products: Product[] = [
       baleDensity: "150-180 kg/m³",
       moistureContent: "10-14%",
       baleDimensions: "100 x 50 x 40 cm",
-      baleWeight: "20-25 kg",
-      packaging: "Double-strapped compressed bales",
       origin: "Rice farming regions"
-    },
-    containerInfo: {
-      baleWeight: "20-25 kg",
-      balesPerContainer: "950-1000 bales",
-      containerType: "40ft High Cube",
-      approximateNetWeight: "20-22 MT",
-      loadingMethod: "Manual stacking / Forklift"
     },
     technicalProperties: {
       grossCalorificValue: "3,000-3,400 kcal/kg",
@@ -378,16 +310,7 @@ export const products: Product[] = [
       baleDensity: "160-200 kg/m³",
       moistureContent: "10-14%",
       baleDimensions: "100 x 50 x 40 cm",
-      baleWeight: "22-28 kg",
-      packaging: "Double-strapped compressed bales",
       origin: "Wheat farming regions"
-    },
-    containerInfo: {
-      baleWeight: "22-28 kg",
-      balesPerContainer: "900-950 bales",
-      containerType: "40ft High Cube",
-      approximateNetWeight: "22-24 MT",
-      loadingMethod: "Manual stacking / Forklift"
     },
     technicalProperties: {
       grossCalorificValue: "3,800-4,200 kcal/kg",
