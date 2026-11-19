@@ -343,7 +343,6 @@ export default async function ProductDetailPage({
                   </td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">
                     Manual &amp; machine handling
-                    <sup className="text-primary font-semibold ml-0.5">*</sup>
                   </td>
                 </tr>
                 <tr>
@@ -394,10 +393,8 @@ export default async function ProductDetailPage({
 
           <div className="mt-5 max-w-3xl space-y-3">
             <p className="text-sm text-muted-foreground leading-relaxed">
-              <sup className="text-primary font-semibold">*</sup> Small bales can be packed
-              into strapped bundles of approximately 300 kg — machine-handled through the
-              port and into the container; cutting the strapping releases the individual
-              bales for manual handling at the receiving end.
+              Fumigation: every lot is fumigated before loading to the treatment the
+              destination country requires, and is shipped with a fumigation certificate.
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Loads are indicative and vary with format and material density — confirmed
