@@ -324,8 +324,8 @@ export default async function ProductDetailPage({
                 <tr className="border-b border-border bg-muted/30">
                   <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Bale format</th>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Typical size</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Handling</th>
                   <th className="px-6 py-4 text-right text-sm font-semibold text-foreground">Approx. load / 40 ft HC</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Handling</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
@@ -338,12 +338,12 @@ export default async function ProductDetailPage({
                       ? "Sleeved high-density small bale, 37–38 kg"
                       : "High-density, PBC special packaging"}
                   </td>
+                  <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">
+                    {product.slug === "rhodes-grass" ? "Approx. 20+ t (540–550 bales)" : "Approx. 24–26 t"}
+                  </td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">
                     Manual &amp; machine handling
                     <sup className="text-primary font-semibold ml-0.5">*</sup>
-                  </td>
-                  <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">
-                    {product.slug === "rhodes-grass" ? "Approx. 20+ t (540–550 bales)" : "Approx. 24–26 t"}
                   </td>
                 </tr>
                 <tr>
@@ -351,10 +351,10 @@ export default async function ProductDetailPage({
                   <td className="px-6 py-4 text-sm text-muted-foreground">
                     {product.slug === "rhodes-grass" ? "Double-pressed, 650–750 kg" : "Double-pressed"}
                   </td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">Machine handling</td>
                   <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">
                     {product.slug === "rhodes-grass" ? "Approx. 18+ t (24–27 bales)" : "Approx. 19–21 t"}
                   </td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Machine handling</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-foreground">Single-press bale</td>
@@ -363,10 +363,10 @@ export default async function ProductDetailPage({
                       ? "Single-pressed, 350–450 kg, available on request"
                       : "Available on request"}
                   </td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">Machine handling</td>
                   <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">
                     {product.slug === "rhodes-grass" ? "Approx. 10+ t (24–27 bales)" : "Approx. 10–12 t"}
                   </td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Machine handling</td>
                 </tr>
               </tbody>
             </table>
