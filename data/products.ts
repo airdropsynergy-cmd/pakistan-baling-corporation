@@ -76,7 +76,8 @@ export const products: Product[] = [
     heroImages: [
       "/images/products/rhode-grass/hero-1.webp",
       "/images/products/rhode-grass/hero-2.webp",
-      "/images/products/rhode-grass/hero-3.webp"
+      "/images/products/rhode-grass/hero-3.webp",
+      "/images/products/rhode-grass/hero-4.webp"
     ],
     shortDescription: "A-grade Rhodes Grass hay exclusively grown in Pakistan for Middle Eastern livestock — leaf-rich forage, graded before pressing and baled expertly for the export sector. Our special bale and container loading capacity helps keep your landed costs low without compromising on quality.",
     // Owner-supplied narrative (Sep 2026), lightly copyedited for typos only.
@@ -308,7 +309,7 @@ export const products: Product[] = [
       productProfile: "#",
       technicalDatasheet: "#"
     },
-    available: true,
+    available: false,
     seasonal: true,
     status: "Seasonal Supply",
     productType: "fuel"
@@ -368,8 +369,7 @@ export const products: Product[] = [
     image: "/images/products/wheat-straw/hero-1.webp",
     heroImages: [
       "/images/products/wheat-straw/hero-1.webp",
-      "/images/products/wheat-straw/hero-2.webp",
-      "/images/products/wheat-straw/hero-3.webp"
+      "/images/products/wheat-straw/hero-2.webp"
     ],
     shortDescription: "High-quality wheat straw for animal bedding, biomass energy, and industrial use.",
     fullDescription: "Premium wheat straw processed and baled to meet exacting quality standards. Our wheat straw serves diverse applications from comfortable animal bedding to efficient biomass fuel. With excellent absorbency and consistent quality, it is a preferred choice for equestrian facilities, dairy farms, and biomass energy producers.",
