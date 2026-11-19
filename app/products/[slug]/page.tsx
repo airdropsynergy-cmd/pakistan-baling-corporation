@@ -331,24 +331,42 @@ export default async function ProductDetailPage({
               <tbody className="divide-y divide-border">
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-foreground">Small bale</td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">High-density, PBC special packaging</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">
+                    {/* Rhodes Grass carries its own 2026 product-profile figures; every
+                        other product keeps the shared default. */}
+                    {product.slug === "rhodes-grass"
+                      ? "Sleeved high-density small bale, 37–38 kg"
+                      : "High-density, PBC special packaging"}
+                  </td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">
                     Manual &amp; machine handling
                     <sup className="text-primary font-semibold ml-0.5">*</sup>
                   </td>
-                  <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">Approx. 24&ndash;26 t</td>
+                  <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">
+                    {product.slug === "rhodes-grass" ? "Approx. 20+ t (540–550 bales)" : "Approx. 24–26 t"}
+                  </td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-foreground">Large bale</td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">Double-pressed</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">
+                    {product.slug === "rhodes-grass" ? "Double-pressed, 650–750 kg" : "Double-pressed"}
+                  </td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Machine handling</td>
-                  <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">Approx. 19&ndash;21 t</td>
+                  <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">
+                    {product.slug === "rhodes-grass" ? "Approx. 18+ t (24–27 bales)" : "Approx. 19–21 t"}
+                  </td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-medium text-foreground">Single-press bale</td>
-                  <td className="px-6 py-4 text-sm text-muted-foreground">Available on request</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">
+                    {product.slug === "rhodes-grass"
+                      ? "Single-pressed, 350–450 kg, available on request"
+                      : "Available on request"}
+                  </td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Machine handling</td>
-                  <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">Approx. 10&ndash;12 t</td>
+                  <td className="px-6 py-4 text-sm text-foreground font-medium text-right tabular-nums">
+                    {product.slug === "rhodes-grass" ? "Approx. 10+ t (24–27 bales)" : "Approx. 10–12 t"}
+                  </td>
                 </tr>
               </tbody>
             </table>

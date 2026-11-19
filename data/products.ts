@@ -89,7 +89,7 @@ export const products: Product[] = [
     metaDescription: "Rhodes Grass hay supplier and exporter in Pakistan. Baled Chloris gayana for dairy, livestock, horse and camel feed — 20-30 KG, 300 KG and 600 KG bales, 40ft container loads. Request a quote.",
     specifications: {
       baleDensity: "180-220 kg/m³",
-      moistureContent: "< 14%",
+      moistureContent: "< 12%",
       baleDimensions: "100 x 50 x 40 cm",
       baleWeight: "Flexible sizes available (20-30 KG), (300 KG), and (600 KG)",
       packaging: "Double-strapped compressed bales",
@@ -98,18 +98,18 @@ export const products: Product[] = [
     containerInfo: {
       baleWeight: "Flexible sizes available (20-30 KG), (300 KG), and (600 KG)",
       balesPerContainer: "850-900 bales",
-      containerType: "40ft High Cube",
+      containerType: "40 ft High Cube",
       // Per the product profile packaging table (small high-density bale).
       // Previously held a bale-type string, which rendered as a nonsense
       // container-load value.
-      approximateNetWeight: "24-26 MT (small high-density bale)",
-      loadingMethod: "Manual stacking / Forklift"
+      approximateNetWeight: "20+ MT of sleeved high-density small bales (540–550 bales)",
+      loadingMethod: "manual stacking / forklift"
     },
     technicalProperties: {
-      crudeProtein: "8-11%",
-      crudeFiber: "30%",
-      ashContent: "< 10%",
-      moisture: "< 14%",
+      crudeProtein: "8–10%",
+      crudeFiber: "29–31% (dry-matter basis)",
+      ashContent: "6–8% (dry-matter basis)",
+      moisture: "< 12%",
       digestibility: "55-60%",
       nutritionalProfile: "Rich in fiber, moderate protein"
     },
