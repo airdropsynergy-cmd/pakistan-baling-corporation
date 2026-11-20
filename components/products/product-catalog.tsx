@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
+import { ResponsiveImage } from "@/components/ui/responsive-image"
 import Link from "next/link"
 import { Search, ArrowRight, Filter } from "lucide-react"
 import { Input } from "@/components/ui/input"
@@ -118,10 +118,10 @@ export function ProductCatalog() {
             <div className="bg-card rounded-xl overflow-hidden shadow-sm border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
               {/* Image */}
               <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
+                <ResponsiveImage
                   src={productImages[product.slug] || "/images/placeholder.jpg"}
                   alt={product.name}
-                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Status Badge */}

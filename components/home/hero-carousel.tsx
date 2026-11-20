@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import Image from "next/image"
+import { ResponsiveImage } from "@/components/ui/responsive-image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -90,10 +90,9 @@ export function HeroCarousel() {
         >
           {/* Background Image */}
           <div className="absolute inset-0">
-            <Image
+            <ResponsiveImage
               src={slide.image}
               alt={slide.title}
-              fill
               priority={index === 0}
               sizes="100vw"
               className="object-cover"

@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { ResponsiveImage } from "@/components/ui/responsive-image"
 import { Metadata } from "next"
 import { 
   Leaf, 
@@ -134,10 +135,10 @@ export default function AboutPage() {
                 />
               </div>
               <div className="absolute -bottom-8 -left-8 w-48 h-48 rounded-xl overflow-hidden shadow-xl border-4 border-background hidden lg:block">
-                <Image
+                <ResponsiveImage
                   src="/hero-3.webp"
                   alt="Biomass products"
-                  fill
+                  sizes="192px"
                   className="object-cover"
                 />
               </div>

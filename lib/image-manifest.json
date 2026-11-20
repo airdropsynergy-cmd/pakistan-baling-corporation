@@ -1,0 +1,425 @@
+{
+  "/hero-1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "fallback": "/hero-1.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/home/hero-1.ea7bad6b-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/home/hero-1.ea7bad6b-1024.webp"
+      }
+    ]
+  },
+  "/hero-2.webp": {
+    "width": 1717,
+    "height": 916,
+    "fallback": "/hero-2.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/home/hero-2.a5905151-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/home/hero-2.a5905151-1024.webp"
+      },
+      {
+        "width": 1600,
+        "src": "/images/generated/home/hero-2.a5905151-1600.webp"
+      }
+    ]
+  },
+  "/hero-3.webp": {
+    "width": 1672,
+    "height": 941,
+    "fallback": "/hero-3.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/home/hero-3.035f2546-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/home/hero-3.035f2546-1024.webp"
+      },
+      {
+        "width": 1600,
+        "src": "/images/generated/home/hero-3.035f2546-1600.webp"
+      }
+    ]
+  },
+  "/hero-4.webp": {
+    "width": 1500,
+    "height": 1000,
+    "fallback": "/hero-4.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/home/hero-4.c5cd4d08-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/home/hero-4.c5cd4d08-1024.webp"
+      }
+    ]
+  },
+  "/hero-5.webp": {
+    "width": 1920,
+    "height": 996,
+    "fallback": "/hero-5.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/home/hero-5.8c846580-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/home/hero-5.8c846580-1024.webp"
+      },
+      {
+        "width": 1600,
+        "src": "/images/generated/home/hero-5.8c846580-1600.webp"
+      }
+    ]
+  },
+  "/hero-6.webp": {
+    "width": 1191,
+    "height": 1000,
+    "fallback": "/hero-6.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/home/hero-6.89926fe1-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/home/hero-6.89926fe1-1024.webp"
+      }
+    ]
+  },
+  "/images/products/alfalfa/hero-1.webp": {
+    "width": 1920,
+    "height": 1765,
+    "fallback": "/images/products/alfalfa/hero-1.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/alfalfa/hero-1.a2f85a07-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/alfalfa/hero-1.a2f85a07-1024.webp"
+      },
+      {
+        "width": 1600,
+        "src": "/images/generated/products/alfalfa/hero-1.a2f85a07-1600.webp"
+      }
+    ]
+  },
+  "/images/products/alfalfa/hero-2.webp": {
+    "width": 1600,
+    "height": 1066,
+    "fallback": "/images/products/alfalfa/hero-2.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/alfalfa/hero-2.19a48fa1-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/alfalfa/hero-2.19a48fa1-1024.webp"
+      },
+      {
+        "width": 1600,
+        "src": "/images/generated/products/alfalfa/hero-2.19a48fa1-1600.webp"
+      }
+    ]
+  },
+  "/images/products/alfalfa/hero-3.webp": {
+    "width": 1350,
+    "height": 900,
+    "fallback": "/images/products/alfalfa/hero-3.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/alfalfa/hero-3.3fba86cc-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/alfalfa/hero-3.3fba86cc-1024.webp"
+      }
+    ]
+  },
+  "/images/products/bagasse/hero-1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "fallback": "/images/products/bagasse/hero-1.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/bagasse/hero-1.d3ccea98-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/bagasse/hero-1.d3ccea98-1024.webp"
+      }
+    ]
+  },
+  "/images/products/bagasse/hero-2.webp": {
+    "width": 1376,
+    "height": 1143,
+    "fallback": "/images/products/bagasse/hero-2.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/bagasse/hero-2.fcc43d08-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/bagasse/hero-2.fcc43d08-1024.webp"
+      }
+    ]
+  },
+  "/images/products/bagasse/hero-3.webp": {
+    "width": 1920,
+    "height": 985,
+    "fallback": "/images/products/bagasse/hero-3.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/bagasse/hero-3.58bfc9fb-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/bagasse/hero-3.58bfc9fb-1024.webp"
+      },
+      {
+        "width": 1600,
+        "src": "/images/generated/products/bagasse/hero-3.58bfc9fb-1600.webp"
+      }
+    ]
+  },
+  "/images/products/rhode-grass/hero-1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "fallback": "/images/products/rhode-grass/hero-1.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/rhode-grass/hero-1.ea7bad6b-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/rhode-grass/hero-1.ea7bad6b-1024.webp"
+      }
+    ]
+  },
+  "/images/products/rhode-grass/hero-2.webp": {
+    "width": 1920,
+    "height": 1280,
+    "fallback": "/images/products/rhode-grass/hero-2.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/rhode-grass/hero-2.119e763f-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/rhode-grass/hero-2.119e763f-1024.webp"
+      },
+      {
+        "width": 1600,
+        "src": "/images/generated/products/rhode-grass/hero-2.119e763f-1600.webp"
+      }
+    ]
+  },
+  "/images/products/rhode-grass/hero-3.webp": {
+    "width": 1600,
+    "height": 1015,
+    "fallback": "/images/products/rhode-grass/hero-3.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/rhode-grass/hero-3.0b140329-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/rhode-grass/hero-3.0b140329-1024.webp"
+      },
+      {
+        "width": 1600,
+        "src": "/images/generated/products/rhode-grass/hero-3.0b140329-1600.webp"
+      }
+    ]
+  },
+  "/images/products/rhode-grass/hero-4.webp": {
+    "width": 1920,
+    "height": 1440,
+    "fallback": "/images/products/rhode-grass/hero-4.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/rhode-grass/hero-4.3834131a-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/rhode-grass/hero-4.3834131a-1024.webp"
+      },
+      {
+        "width": 1600,
+        "src": "/images/generated/products/rhode-grass/hero-4.3834131a-1600.webp"
+      }
+    ]
+  },
+  "/images/products/rice-husk/hero-1.webp": {
+    "width": 1920,
+    "height": 1920,
+    "fallback": "/images/products/rice-husk/hero-1.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/rice-husk/hero-1.9abfa8f0-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/rice-husk/hero-1.9abfa8f0-1024.webp"
+      },
+      {
+        "width": 1600,
+        "src": "/images/generated/products/rice-husk/hero-1.9abfa8f0-1600.webp"
+      }
+    ]
+  },
+  "/images/products/rice-husk/hero-2.webp": {
+    "width": 1350,
+    "height": 900,
+    "fallback": "/images/products/rice-husk/hero-2.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/rice-husk/hero-2.3297df23-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/rice-husk/hero-2.3297df23-1024.webp"
+      }
+    ]
+  },
+  "/images/products/rice-husk/hero-3.webp": {
+    "width": 1503,
+    "height": 1000,
+    "fallback": "/images/products/rice-husk/hero-3.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/rice-husk/hero-3.c735c037-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/rice-husk/hero-3.c735c037-1024.webp"
+      }
+    ]
+  },
+  "/images/products/rice-straw/hero-1.webp": {
+    "width": 1122,
+    "height": 1402,
+    "fallback": "/images/products/rice-straw/hero-1.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/rice-straw/hero-1.a52a1c1e-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/rice-straw/hero-1.a52a1c1e-1024.webp"
+      }
+    ]
+  },
+  "/images/products/rice-straw/hero-2.webp": {
+    "width": 1300,
+    "height": 973,
+    "fallback": "/images/products/rice-straw/hero-2.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/rice-straw/hero-2.58b1bcf9-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/rice-straw/hero-2.58b1bcf9-1024.webp"
+      }
+    ]
+  },
+  "/images/products/rice-straw/hero-3.webp": {
+    "width": 1920,
+    "height": 1440,
+    "fallback": "/images/products/rice-straw/hero-3.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/rice-straw/hero-3.cc39b566-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/rice-straw/hero-3.cc39b566-1024.webp"
+      },
+      {
+        "width": 1600,
+        "src": "/images/generated/products/rice-straw/hero-3.cc39b566-1600.webp"
+      }
+    ]
+  },
+  "/images/products/silage/hero-1.webp": {
+    "width": 1350,
+    "height": 900,
+    "fallback": "/images/products/silage/hero-1.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/silage/hero-1.25764c93-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/silage/hero-1.25764c93-1024.webp"
+      }
+    ]
+  },
+  "/images/products/wheat-straw/hero-1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "fallback": "/images/products/wheat-straw/hero-1.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/wheat-straw/hero-1.fec44de8-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/wheat-straw/hero-1.fec44de8-1024.webp"
+      }
+    ]
+  },
+  "/images/products/wheat-straw/hero-2.webp": {
+    "width": 1920,
+    "height": 1920,
+    "fallback": "/images/products/wheat-straw/hero-2.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/products/wheat-straw/hero-2.e6af4c62-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/products/wheat-straw/hero-2.e6af4c62-1024.webp"
+      },
+      {
+        "width": 1600,
+        "src": "/images/generated/products/wheat-straw/hero-2.e6af4c62-1600.webp"
+      }
+    ]
+  }
+}

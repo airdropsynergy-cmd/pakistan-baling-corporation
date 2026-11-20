@@ -6,6 +6,22 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async headers() {
+    return [
+      // Build-time generated responsive image variants (see
+      // scripts/generate-images.mjs) carry a content hash in their filename,
+      // so a changed photo always gets a new URL — safe to cache for a year.
+      {
+        source: "/images/generated/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ]
+  },
   async redirects() {
     return [
       // Rhodes Grass slug migration. The product was previously published under

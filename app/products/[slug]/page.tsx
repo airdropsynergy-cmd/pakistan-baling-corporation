@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
-import Image from "next/image"
+import { ResponsiveImage } from "@/components/ui/responsive-image"
 import Link from "next/link"
 import { 
   ArrowRight, 
@@ -609,10 +609,10 @@ export default async function ProductDetailPage({
               >
                 <div className="bg-card rounded-xl overflow-hidden shadow-sm border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
+                    <ResponsiveImage
                       src={relatedProduct.heroImages[0] || "/images/placeholder.jpg"}
                       alt={`${relatedProduct.name} supplied by Pakistan Baling Corporation`}
-                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>

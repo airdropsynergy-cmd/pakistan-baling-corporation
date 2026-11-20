@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
+import { ResponsiveImage } from "@/components/ui/responsive-image"
 
 interface ProductImageGalleryProps {
   images: string[]
@@ -19,10 +19,10 @@ export default function ProductImageGallery({
 
       {/* Main Image */}
       <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
-        <Image
+        <ResponsiveImage
           src={selectedImage}
           alt={productName}
-          fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
           className="object-cover"
           priority
         />
@@ -41,10 +41,10 @@ export default function ProductImageGallery({
                 : "border-transparent"
             }`}
           >
-            <Image
+            <ResponsiveImage
               src={image}
               alt={`${productName} ${index + 1}`}
-              fill
+              sizes="96px"
               className="object-cover"
             />
           </button>

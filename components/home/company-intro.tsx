@@ -1,4 +1,4 @@
-import Image from "next/image"
+import { ResponsiveImage } from "@/components/ui/responsive-image"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
@@ -90,10 +90,10 @@ export function CompanyIntro() {
           {/* Image */}
           <div className="relative">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-              <Image
+              <ResponsiveImage
                 src="/hero-3.webp"
                 alt="Agricultural operations and biomass processing"
-                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
               />
             </div>
