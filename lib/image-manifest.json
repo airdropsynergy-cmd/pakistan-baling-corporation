@@ -1,4 +1,19 @@
 {
+  "/hero-1-mobile.webp": {
+    "width": 1080,
+    "height": 625,
+    "fallback": "/hero-1-mobile.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/home/hero-1-mobile.769560eb-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/home/hero-1-mobile.769560eb-1024.webp"
+      }
+    ]
+  },
   "/hero-1.webp": {
     "width": 1536,
     "height": 1024,
@@ -11,6 +26,21 @@
       {
         "width": 1024,
         "src": "/images/generated/home/hero-1.ea7bad6b-1024.webp"
+      }
+    ]
+  },
+  "/hero-2-mobile.webp": {
+    "width": 1080,
+    "height": 916,
+    "fallback": "/hero-2-mobile.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/home/hero-2-mobile.52b0efaa-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/home/hero-2-mobile.52b0efaa-1024.webp"
       }
     ]
   },
@@ -52,6 +82,21 @@
       }
     ]
   },
+  "/hero-4-mobile.webp": {
+    "width": 1080,
+    "height": 1000,
+    "fallback": "/hero-4-mobile.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/home/hero-4-mobile.09ad2fa4-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/home/hero-4-mobile.09ad2fa4-1024.webp"
+      }
+    ]
+  },
   "/hero-4.webp": {
     "width": 1500,
     "height": 1000,
@@ -64,6 +109,21 @@
       {
         "width": 1024,
         "src": "/images/generated/home/hero-4.c5cd4d08-1024.webp"
+      }
+    ]
+  },
+  "/hero-5-mobile.webp": {
+    "width": 1080,
+    "height": 996,
+    "fallback": "/hero-5-mobile.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/home/hero-5-mobile.1d4be2f1-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/home/hero-5-mobile.1d4be2f1-1024.webp"
       }
     ]
   },
@@ -83,6 +143,21 @@
       {
         "width": 1600,
         "src": "/images/generated/home/hero-5.8c846580-1600.webp"
+      }
+    ]
+  },
+  "/hero-6-mobile.webp": {
+    "width": 1080,
+    "height": 1000,
+    "fallback": "/hero-6-mobile.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/generated/home/hero-6-mobile.0448dfeb-640.webp"
+      },
+      {
+        "width": 1024,
+        "src": "/images/generated/home/hero-6-mobile.0448dfeb-1024.webp"
       }
     ]
   },

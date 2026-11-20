@@ -98,7 +98,7 @@ export function CompanyIntro() {
               />
             </div>
             {/* Stats Card */}
-            <div className="absolute -bottom-6 -left-6 lg:-left-12 bg-card rounded-xl shadow-xl p-6 border border-border">
+            <div className="absolute bottom-4 left-4 lg:-bottom-6 lg:-left-12 bg-card rounded-xl shadow-xl p-6 border border-border">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary">15+</div>

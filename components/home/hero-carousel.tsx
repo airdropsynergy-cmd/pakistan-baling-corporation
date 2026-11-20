@@ -15,7 +15,8 @@ const slides = [
     description: "Carefully harvested, expertly baled, and prepared to meet the nutritional demands of livestock producers worldwide.",
     cta: "Explore Products",
     href: "/products/rhodes-grass",
-    image: "/hero-1.webp"
+    image: "/hero-1.webp",
+    mobileImage: "/hero-1-mobile.webp"
   },
   {
     id: 2,
@@ -24,7 +25,8 @@ const slides = [
     description: "Delivering high-quality agricultural products through strategic infastructure, advanced processing and reliable distribution.",
     cta: "Learn More",
     href: "/products/wheat-straw",
-    image: "/hero-2.webp"
+    image: "/hero-2.webp",
+    mobileImage: "/hero-2-mobile.webp"
   },
   {
     id: 3,
@@ -33,7 +35,8 @@ const slides = [
     description: "Sustainable bagasse for high-efficiency biomass power generation and industrial applications.",
     cta: "View Details",
     href: "/products/sugarcane-bagasse",
-    image: "/hero-6.webp"
+    image: "/hero-6.webp",
+    mobileImage: "/hero-6-mobile.webp"
   },
   {
     id: 4,
@@ -42,7 +45,8 @@ const slides = [
     description: "Versatile rice straw bales for biomass fuel, bedding, and industrial applications.",
     cta: "Discover More",
     href: "/products/rice-straw",
-    image: "/hero-4.webp"
+    image: "/hero-4.webp",
+    mobileImage: "/hero-4-mobile.webp"
   },
   {
     id: 5,
@@ -51,7 +55,8 @@ const slides = [
     description: "Efficient containerized shipping to markets worldwide with comprehensive export documentation.",
     cta: "Contact Us",
     href: "/contact",
-    image: "/hero-5.webp"
+    image: "/hero-5.webp",
+    mobileImage: "/hero-5-mobile.webp"
   },
 ]
 
@@ -92,6 +97,7 @@ export function HeroCarousel() {
           <div className="absolute inset-0">
             <ResponsiveImage
               src={slide.image}
+              mobileSrc={slide.mobileImage}
               alt={slide.title}
               priority={index === 0}
               sizes="100vw"
@@ -126,24 +132,32 @@ export function HeroCarousel() {
         </div>
       ))}
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows — desktop only; on mobile the equivalent controls
+          sit next to the dots below, so they never cover the slide text */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-background/20 backdrop-blur-sm flex items-center justify-center text-background hover:bg-background/30 transition-colors"
+        className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-background/20 backdrop-blur-sm items-center justify-center text-background hover:bg-background/30 transition-colors"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-background/20 backdrop-blur-sm flex items-center justify-center text-background hover:bg-background/30 transition-colors"
+        className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-background/20 backdrop-blur-sm items-center justify-center text-background hover:bg-background/30 transition-colors"
         aria-label="Next slide"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
 
-      {/* Dot Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+      {/* Dot Indicators, with mobile-only prev/next arrows alongside them */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+        <button
+          onClick={prevSlide}
+          className="md:hidden w-9 h-9 rounded-full bg-background/20 backdrop-blur-sm flex items-center justify-center text-background hover:bg-background/30 transition-colors"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
         {slides.map((_, index) => (
           <button
             key={index}
@@ -157,6 +171,13 @@ export function HeroCarousel() {
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
+        <button
+          onClick={nextSlide}
+          className="md:hidden w-9 h-9 rounded-full bg-background/20 backdrop-blur-sm flex items-center justify-center text-background hover:bg-background/30 transition-colors"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
       </div>
     </section>
   )

@@ -32,7 +32,7 @@ export function ExportLogistics() {
               />
             </div>
             {/* Overlay Card */}
-            <div className="absolute -bottom-6 -right-6 lg:-right-12 bg-card rounded-xl shadow-xl p-6 border border-border max-w-xs">
+            <div className="absolute bottom-4 right-4 lg:-bottom-6 lg:-right-12 bg-card rounded-xl shadow-xl p-6 border border-border max-w-xs">
               <div className="flex items-center gap-4 mb-3">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                   <Container className="w-6 h-6 text-primary" />
